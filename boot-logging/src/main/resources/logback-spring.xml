@@ -10,7 +10,7 @@
     <conversionRule conversionWord="wEx"
                     converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter"/>
 
-<!--    <define name="LOG_HOME" class="com.yetech.eprint.config.LogHomeConfig"/>-->
+    <define name="LOG_HOME" class="com.qinweizhao.config.LogOutPathConfig"/>
 
     <!-- 设置上下文名称 -->
     <contextName value="boot-logging"/>
@@ -19,8 +19,7 @@
     <property name="logName" value="logs"/>
 
     <!-- 定义参数 -->
-<!--    <property name="logback.dirPath" value="${LOG_HOME}"/>-->
-    <property name="logback.dirPath" value="/log"/>
+    <property name="logback.dirPath" value="${LOG_HOME}"/>
     <property name="logback.contextName" value="${logName}"/>
 
     <property name="logback.lever" value="debug"/>

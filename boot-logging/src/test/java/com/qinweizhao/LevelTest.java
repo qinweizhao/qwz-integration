@@ -27,6 +27,7 @@ class LevelTest {
         logger.warn("这是warn日志...");
         logger.error("这是error日志...");
         logger.debug("this is a test");
+        logger.info("今天是2021.9.8");
     }
 
 }

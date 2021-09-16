@@ -5,14 +5,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author qinweizhao
- * @since 2021/9/7
+ * @since 2021/9/10
  */
 @RestController
-public class LoggingController {
+public class HelloController {
 
-    @GetMapping("/test")
-    public String test(){
-        return "test";
+    @GetMapping("hello")
+    public String hello(){
+        return "Hello SpringBoot";
     }
-
 }

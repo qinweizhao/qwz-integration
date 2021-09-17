@@ -45,8 +45,8 @@ public class ConfigController {
      *
      * @return u
      */
-    @GetMapping("/user")
-    public Police user() {
+    @GetMapping("/police")
+    public Police police() {
         return police;
     }
 }

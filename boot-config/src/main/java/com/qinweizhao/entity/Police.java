@@ -1,6 +1,7 @@
 package com.qinweizhao.entity;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,7 +13,9 @@ import org.springframework.stereotype.Component;
  * @author qinweizhao
  * @since 2021/9/17
  */
+//
 @Component
+@PropertySource(value = {"classpath:police.properties"})
 public class Police {
 
 

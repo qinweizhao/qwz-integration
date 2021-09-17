@@ -14,7 +14,7 @@
 
 	<modules>
 		<module>boot-logging</module>
-		<module>boot-profiles</module>
+		<module>boot-config</module>
 	</modules>
 
 </project>

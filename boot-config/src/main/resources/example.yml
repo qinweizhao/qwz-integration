@@ -6,16 +6,16 @@
 #	''：单引号；会转义特殊字符，特殊字符最终只是一个普通的字符串数据
 #			name:   ‘map \n list’：输出；map \n list
 namea: list
-nameb: "map \n list"
-namec: 'map \n list'
+nameb: "tom \n jerry"
+namec: 'tom \n jerry'
 
 
 # 对象、Map（属性和值）（键值对）：
 #	k: v：在下一行来写对象的属性和值的关系；注意缩进
 user1:
-  name: qwz
-  age: 888
-user2: {name: qwz,age: 888}
+  name: weizhao
+  age: 24
+user2: {name: weizhao,age: 24}
 
 
 # 数组（List、Set）：

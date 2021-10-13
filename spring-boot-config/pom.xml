@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.qinweizhao</groupId>
-    <artifactId>boot-config</artifactId>
+    <artifactId>spring-boot-config</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>boot-config</name>
+    <name>spring-boot-config</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>

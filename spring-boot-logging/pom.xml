@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.qinweizhao</groupId>
-    <artifactId>boot-logging</artifactId>
+    <artifactId>spring-boot-logging</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>boot-logging</name>
+    <name>spring-boot-logging</name>
     <description>boot-logging</description>
     <properties>
         <java.version>1.8</java.version>

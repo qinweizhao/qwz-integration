@@ -11,7 +11,7 @@ import io.swagger.annotations.*;
 @Api(tags = "")
 public class ExampleController {
 
-    /**
+    /*
      * @Api(tags="")
      *      用在请求的类上，表示对类的说明
      *      tags"说明该类的作用，可以在UI界面上看到的注解"

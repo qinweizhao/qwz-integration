@@ -4,7 +4,6 @@
 
 1. 描述：配置文件值注入( @Value 方式)
 
-
 ### 二、spring-boot-config-b
 
 1. 描述：配置文件值注入( @ConfigurationProperties 方式)

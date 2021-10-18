@@ -9,18 +9,16 @@
         <version>0.0.1</version>
     </parent>
 
-    <artifactId>spring-boot-config</artifactId>
+    <artifactId>spring-boot-redis</artifactId>
     <version>0.0.1</version>
-    <name>spring-boot-config</name>
+    <name>spring-boot-redis</name>
     <packaging>pom</packaging>
 
     <description>Demo project for Spring Boot</description>
 
     <modules>
-        <module>spring-boot-config-a</module>
-        <module>spring-boot-config-b</module>
-        <module>spring-boot-config-c</module>
-        <module>spring-boot-config-d</module>
+        <module>spring-boot-redis-a</module>
+        <module>spring-boot-redis-b</module>
     </modules>
 
 </project>

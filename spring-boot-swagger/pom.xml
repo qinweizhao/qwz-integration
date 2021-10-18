@@ -19,8 +19,12 @@
 	<description>swagger-parent</description>
 
 	<modules>
-		<module>spring-boot-swagger2</module>
-		<module>spring-boot-swagger3</module>
+		<module>spring-boot-swagger-a</module>
+		<module>spring-boot-swagger-b</module>
+		<module>spring-boot-swagger-c</module>
+		<module>spring-boot-swagger-d</module>
+		<module>spring-boot-swagger-e</module>
+		<module>spring-boot-swagger-f</module>
 	</modules>
 
 </project>

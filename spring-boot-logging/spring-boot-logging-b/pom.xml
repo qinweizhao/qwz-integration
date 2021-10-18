@@ -13,8 +13,10 @@
     <groupId>com.qinweizhao</groupId>
     <artifactId>spring-boot-logging-b</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
     <name>spring-boot-logging-b</name>
     <description>spring-boot-logging-b</description>
+
     <properties>
         <java.version>11</java.version>
     </properties>

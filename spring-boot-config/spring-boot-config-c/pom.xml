@@ -13,6 +13,7 @@
     <groupId>com.qinweizhao</groupId>
     <artifactId>spring-boot-config-c</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
     <name>spring-boot-config-c</name>
     <description>spring-boot-config-c</description>
 

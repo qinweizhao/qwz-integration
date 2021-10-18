@@ -13,6 +13,7 @@
     <groupId>com.qinweizhao</groupId>
     <artifactId>spring-boot-swagger-b</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
     <name>spring-boot-swagger-b</name>
     <description>spring-boot-swagger-b</description>
 

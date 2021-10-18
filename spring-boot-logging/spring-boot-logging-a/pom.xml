@@ -13,6 +13,7 @@
     <groupId>com.qinweizhao</groupId>
     <artifactId>spring-boot-logging-a</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
     <name>spring-boot-logging-a</name>
     <description>spring-boot-logging-a</description>
 

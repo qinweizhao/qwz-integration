@@ -13,6 +13,7 @@
     <groupId>com.qinweizhao</groupId>
     <artifactId>spring-boot-redis-a</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
     <name>spring-boot-redis-a</name>
     <description>spring-boot-redis-a</description>
 

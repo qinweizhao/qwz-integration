@@ -13,6 +13,7 @@
     <groupId>com.qinweizhao</groupId>
     <artifactId>spring-boot-logging-c</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
     <name>spring-boot-logging-c</name>
     <description>spring-boot-logging-c</description>
 

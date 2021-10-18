@@ -11,37 +11,37 @@
     </parent>
 
     <groupId>com.qinweizhao</groupId>
-    <artifactId>spring-boot-config-d</artifactId>
+    <artifactId>spring-boot-swagger2-a</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-boot-config-d</name>
-    <description>spring-boot-config-d</description>
+    <name>spring-boot-swagger2-a</name>
+    <description>spring-boot-swagger2-a</description>
 
     <properties>
         <java.version>11</java.version>
     </properties>
 
     <dependencies>
+        <!--Swagger2-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-
-        <!--导入配置文件处理器，配置文件进行绑定就会有提示-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
     </dependencies>
 

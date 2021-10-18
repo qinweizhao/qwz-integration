@@ -10,7 +10,7 @@
 
 	<packaging>pom</packaging>
 
-	<name>qwz-spring-boot-sample</name>
+	<name>sample-parent</name>
 	<description>sample-parent</description>
 
 	<modules>

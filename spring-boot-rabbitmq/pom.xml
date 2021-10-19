@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<parent>
+		<groupId>com.qinweizhao</groupId>
+		<artifactId>qwz-spring-boot-sample</artifactId>
+		<version>0.0.1</version>
+	</parent>
+
+	<artifactId>spring-boot-rabbitmq</artifactId>
+	<version>0.0.1</version>
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<packaging>pom</packaging>
+
+	<name>spring-boot-rabbitmq</name>
+	<description>rabbitmq-parent</description>
+
+	<modules>
+		<module>spring-boot-rabbitmq-a</module>
+	</modules>
+
+</project>

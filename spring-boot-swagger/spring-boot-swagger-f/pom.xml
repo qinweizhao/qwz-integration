@@ -11,11 +11,11 @@
     </parent>
 
     <groupId>com.qinweizhao</groupId>
-    <artifactId>spring-boot-swagger3-c</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <artifactId>spring-boot-swagger-f</artifactId>
+    <version>0.0.1</version>
 
-    <name>spring-boot-swagger3-c</name>
-    <description>spring-boot-swagger3-c</description>
+    <name>spring-boot-swagger-f</name>
+    <description>spring-boot-swagger-f</description>
 
     <properties>
         <java.version>11</java.version>

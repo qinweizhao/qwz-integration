@@ -1,4 +1,4 @@
-## spring-boot-config 说明
+## spring-boot-redis 说明
 
 ### 一、spring-boot-redis-a
 

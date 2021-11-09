@@ -1,7 +1,0 @@
-entity:
-  user:
-    # BindValidationException
-    # email: qqqqqq.com
-    email: qqqq@qq.com
-    name: yml
-    age: 14

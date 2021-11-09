@@ -14,8 +14,6 @@
 	<description>example-parent</description>
 
 	<modules>
-		<module>spring-boot-config</module>
-		<module>spring-boot-logging</module>
 		<module>spring-boot-rabbitmq</module>
 		<module>spring-boot-redis</module>
 		<module>spring-boot-security</module>

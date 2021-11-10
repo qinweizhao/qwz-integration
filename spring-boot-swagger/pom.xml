@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.qinweizhao</groupId>
-    <artifactId>spring-boot-swagger2</artifactId>
+    <artifactId>spring-boot-swagger</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-boot-swagger2</name>
-    <description>spring-boot-swagger2</description>
+    <name>spring-boot-swagger</name>
+    <description>spring-boot-swagger</description>
     <properties>
         <java.version>11</java.version>
     </properties>

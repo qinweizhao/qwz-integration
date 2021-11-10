@@ -18,7 +18,7 @@
 		<module>spring-boot-redis</module>
 		<module>spring-boot-security</module>
 		<module>spring-boot-swagger</module>
-		<module>spring-boot-template</module>
+		<module>spring-boot-thymeleaf</module>
 	</modules>
 
 </project>

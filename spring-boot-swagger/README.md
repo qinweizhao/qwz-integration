@@ -2,9 +2,13 @@
 
 ### 1. 简介
 
-SpringBoot 集成 Swagger3
+SpringBoot 集成 Swagger，包含 Swagger2 和 Swagger3 的基础配置和存在拦截器以及存在 token 的相应配置。
 
-访问地址：http://localhost:8080/swagger-ui/index.html
+> 访问地址：
+>
+> Swagger2：http://localhost:port/swagger-ui.html
+>
+> Swagger3：http://localhost:port/swagger-ui/index.html （默认使用 Swagger3 ）
 
 ### 2. 使用
 

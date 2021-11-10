@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-boot-template</artifactId>
+    <artifactId>spring-boot-template-engines</artifactId>
     <packaging>pom</packaging>
 
     <properties>
@@ -19,6 +19,6 @@
 
 
     <modules>
-        <module>spring-boot-template-thymeleaf</module>
+        <module>spring-boot-thymeleaf</module>
     </modules>
 </project>

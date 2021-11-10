@@ -5,6 +5,7 @@ import com.qinweizhao.handler.MyAccessDeniedHandler;
 import com.qinweizhao.handler.MyAuthenticationEntryPoint;
 import com.qinweizhao.handler.MyLogoutSuccessHandler;
 import com.qinweizhao.provider.MyAuthenticationProvider;
+import com.qinweizhao.voter.MyExpressionVoter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -38,21 +39,25 @@ import java.util.List;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-
     /**
-     * 资源过滤
+     * 放行的资源
      */
     private static final String[] URL_WHITELIST = {
             "/css/**",
             "/js/**",
             "/favicon.ico"
     };
+
+
     @Autowired
     private UserDetailsService userDetailsService;
+
     @Autowired
     private MyAccessDeniedHandler myAccessDeniedHandler;
+
     @Autowired
     private MyAuthenticationEntryPoint myAuthenticationEntryPoint;
+
     @Autowired
     private MyLogoutSuccessHandler myLogoutSuccessHandler;
 
@@ -104,7 +109,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private AccessDecisionManager accessDecisionManager() {
         List<AccessDecisionVoter<?>> decisionVoters
                 = Arrays.asList(
-                // new MyExpressionVoter(),
+                new MyExpressionVoter(),
                 new WebExpressionVoter(),
                 new RoleVoter(),
                 new AuthenticatedVoter());

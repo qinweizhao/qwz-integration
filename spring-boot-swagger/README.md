@@ -47,7 +47,11 @@ SpringBoot 集成 Swagger，包含 Swagger2 和 Swagger3 的基础配置和存�
     用在属性上，描述响应类的属性
 ```
 
-### 3. 相关
+### 3.效果
+
+![2021-11-15_170700](https://img.qinweizhao.com//2021/11/2021-11-15_170700.png)
+
+### 4. 相关
 
 > [SpringBoot 集成 Swagger2 与 Swagger3 的区别 - Monday_1201 (qinweizhao.com)](https://www.qinweizhao.com/?p=44)
 

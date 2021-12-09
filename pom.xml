@@ -19,6 +19,7 @@
 		<module>spring-boot-security</module>
 		<module>spring-boot-swagger</module>
 		<module>spring-boot-thymeleaf</module>
+		<module>spring-boot-dubbo</module>
 	</modules>
 
 </project>

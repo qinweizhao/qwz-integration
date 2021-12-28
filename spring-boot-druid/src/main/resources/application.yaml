@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+#################### 数据库相关配置 ####################
+# 配置参考
+# https://github.com/alibaba/druid/tree/master/druid-spring-boot-starter
+spring:
+  datasource:
+    name: druidDataSource
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://42.192.49.72:3306/project_calf?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&allowMultiQueries=true&autoReconnect=true&useSSL=false&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: Qwz#1201
+      web-stat-filter:
+        enabled: true
+        url-pattern: /druid/*
+      stat-view-servlet:
+        login-username: 123
+        login-password: 123
+        allow:
+        enabled: true

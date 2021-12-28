@@ -16,6 +16,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
 
+    /**
+     * 如果有 security 一定要放行 /swagger-resources/**", "/webjars/**", "/swagger-ui/**", "/v3/**");
+     *
+     * @param registry registry
+     */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         // 配置swagger拦截器

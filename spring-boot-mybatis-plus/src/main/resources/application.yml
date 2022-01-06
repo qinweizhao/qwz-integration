@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    username: root
+    password: Qwz#1201
+    url: jdbc:mysql://42.192.49.72:3306/project_calf?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&allowMultiQueries=true&autoReconnect=true&useSSL=false&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml

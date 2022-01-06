@@ -27,6 +27,7 @@
 | ------------------------------------------------ | ------------------------------ |
 | [spring-boot-druid](./spring-boot-druid)         | SpringBoot 整合 Druid          |
 | [spring-boot-dubbo](./spring-boot-dubbo)         | SpringBoot 整合 Dubbo          |
+| [spring-boot-mybatis-plus](./spring-boot-mybatis-plus)         | SpringBoot 整合 MybatisPlus          |
 | [spring-boot-rabbitmq](./spring-boot-rabbitmq)   | SpringBoot 整合 RabbitMQ       |
 | [spring-boot-redis](./spring-boot-redis)         | SpringBoot 整合 Redis          |
 | [spring-boot-security](./spring-boot-security)   | SpringBoot 整合 SpringSecurity |

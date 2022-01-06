@@ -10,7 +10,7 @@
 
 	<packaging>pom</packaging>
 
-	<name>example-parent</name>
+	<name>integration-parent</name>
 	<description>integration-parent</description>
 
 	<modules>

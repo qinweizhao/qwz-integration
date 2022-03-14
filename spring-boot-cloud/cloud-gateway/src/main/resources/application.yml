@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: cloud-gateway
+
+  cloud:
+    gateway:
+      routes:
+        # 系统模块
+        - id: ruoyi-system
+          uri: http://localhost:9201/
+          predicates:
+            - Path=/system/**
+          filters:
+            - StripPrefix=1

@@ -15,7 +15,7 @@
 </p>
 
 
-![Alt](https://repobeats.axiom.co/api/embed/096a83e68e2647370ffbe8a27b8473b400f2c014.svg "Repobeats analytics image")
+![Alt](https://repobeats.axiom.co/api/embed/e116d68183dceebf4b9e595c9dbd6745fad50d3a.svg "Repobeats analytics image")
 
 ## 1、简介
 

@@ -1,14 +1,16 @@
 package com.qinweizhao.elasticsearch;
 
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
-import co.elastic.clients.elasticsearch._types.Result;
 import co.elastic.clients.elasticsearch._types.ShardStatistics;
+import co.elastic.clients.elasticsearch._types.aggregations.LongTermsBucket;
+import co.elastic.clients.elasticsearch._types.query_dsl.BoolQuery;
 import co.elastic.clients.elasticsearch.core.*;
+import co.elastic.clients.elasticsearch.core.bulk.BulkResponseItem;
+import co.elastic.clients.elasticsearch.core.search.TotalHits;
 import co.elastic.clients.elasticsearch.indices.CreateIndexResponse;
 import co.elastic.clients.elasticsearch.indices.DeleteIndexResponse;
 import co.elastic.clients.elasticsearch.indices.GetIndexResponse;
 import co.elastic.clients.elasticsearch.indices.IndexState;
-import co.elastic.clients.json.JsonData;
 import com.alibaba.fastjson.JSON;
 import com.qinweizhao.elasticsearch.entity.Account;
 import org.junit.jupiter.api.Test;
@@ -16,7 +18,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.IOException;
-import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @SpringBootTest
@@ -125,7 +128,7 @@ class ElasticsearchApplicationTests {
         // 如果为 json 则使用 ObjectNode.class
 
         GetResponse<Account> bank = client.get(g -> g.index("bank").id("2Cpen4ABSWOoZKugEt8G"), Account.class);
-        if (bank.found()){
+        if (bank.found()) {
             Account source = bank.source();
             assert source != null;
             System.out.println(source.getLastname());
@@ -153,6 +156,96 @@ class ElasticsearchApplicationTests {
         DeleteResponse bank = client.delete(d -> d.index("bank").id("2Cpen4ABSWOoZKugEt8G"));
         Number successful = bank.shards().successful();
         System.out.println("successful = " + successful);
+    }
+
+
+    @Test
+    void bulk() throws IOException {
+        List<Account> list = new ArrayList<>();
+        Account a1 = new Account();
+        a1.setFirstname("qin");
+        Account a2 = new Account();
+        a2.setFirstname("q");
+        list.add(a1);
+        list.add(a2);
+
+        BulkRequest.Builder br = new BulkRequest.Builder();
+
+        for (Account account : list) {
+            br.operations(op -> op
+                    .index(idx -> idx
+                            .index("products")
+                            .document(account)
+                    )
+            );
+        }
+        BulkResponse result = client.bulk(br.build());
+
+        if (result.errors()) {
+            for (BulkResponseItem item : result.items()) {
+                if (item.error() != null) {
+                    System.out.println(item.error().reason());
+                }
+            }
+        }
+    }
+
+
+    @Test
+    void search() throws IOException {
+        SearchRequest.Builder searchBuilder = new SearchRequest.Builder();
+
+
+        BoolQuery.Builder boolBuilder = new BoolQuery.Builder();
+
+        boolBuilder.must(b ->
+                b.match(m ->
+                        m.field("address").query("mill")
+                )
+        );
+        boolBuilder.mustNot(b ->
+                b.match(m ->
+                        m.field("email").query("baluba.com")
+                )
+        );
+        boolBuilder.should(b ->
+                b.match(m ->
+                        m.field("address").query("lane")
+                )
+        );
+        searchBuilder.query(q ->
+                q.bool(boolBuilder.build())
+        );
+
+        SearchRequest request = searchBuilder.index("bank").build();
+        SearchResponse<Account> search = client.search(request, Account.class);
+        TotalHits total = search.hits().total();
+        assert total != null;
+        long value = total.value();
+        System.out.println("total-value = " + value);
+    }
+
+
+    @Test
+    void aggregation() throws IOException {
+        SearchResponse<Account> response = client.search(s ->
+                        s
+                                .index("bank")
+                                .query(q -> q.matchAll(m -> m))
+                                .aggregations("group_by_age", a ->
+                                        a.terms(t ->
+                                                t.field("age")
+                                        )
+                                )
+                , Account.class);
+
+        List<LongTermsBucket> buckets = response.aggregations().get("group_by_age").lterms().buckets().array();
+        for (LongTermsBucket bucket : buckets) {
+            String key = bucket.key();
+            long l = bucket.docCount();
+            System.out.println("key=" + key + "---l = " + l);
+        }
+
     }
 
 }

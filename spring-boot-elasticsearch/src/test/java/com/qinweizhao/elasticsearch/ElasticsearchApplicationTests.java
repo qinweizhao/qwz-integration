@@ -1,6 +1,7 @@
 package com.qinweizhao.elasticsearch;
 
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
+import co.elastic.clients.elasticsearch._types.query_dsl.MatchAllQuery;
 import co.elastic.clients.elasticsearch.core.SearchResponse;
 import com.qinweizhao.elasticsearch.entity.Account;
 import org.junit.jupiter.api.Test;
@@ -42,6 +43,16 @@ class ElasticsearchApplicationTests {
 
     @Test
     void searchData() throws Exception {
+
+        SearchResponse<Account> bank = elasticsearchClient.search(s ->
+                s.index("bank")
+                        .query(q ->
+                                q.matchAll(
+                                        m->m
+                                )), Account.class);
+        assert bank.hits().total() != null;
+        System.out.println(bank.hits().total().value());
+
 
         String qs = "mill";
         SearchResponse<Account> search = elasticsearchClient.search(s -> s.index("bank").query(q ->

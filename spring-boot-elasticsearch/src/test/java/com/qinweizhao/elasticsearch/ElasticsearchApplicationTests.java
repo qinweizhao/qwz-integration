@@ -217,6 +217,8 @@ class ElasticsearchApplicationTests {
                 q.bool(boolBuilder.build())
         );
 
+        String s = searchBuilder.toString();
+        System.out.println("构建的DSL" + s);
         SearchRequest request = searchBuilder.index("bank").build();
         SearchResponse<Account> search = client.search(request, Account.class);
         TotalHits total = search.hits().total();

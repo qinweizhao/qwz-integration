@@ -3,11 +3,14 @@ package com.qinweizhao;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author weizhao
+ */
 @SpringBootApplication
-public class RabbitmqAApplication {
+public class RabbitmqApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(RabbitmqAApplication.class, args);
+        SpringApplication.run(RabbitmqApplication.class, args);
     }
 
 }

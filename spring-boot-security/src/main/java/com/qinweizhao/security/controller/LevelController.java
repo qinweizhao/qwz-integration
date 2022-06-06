@@ -1,4 +1,4 @@
-package com.qinweizhao.controller;
+package com.qinweizhao.security.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;

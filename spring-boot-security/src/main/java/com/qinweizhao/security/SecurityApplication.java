@@ -1,4 +1,4 @@
-package com.qinweizhao;
+package com.qinweizhao.security;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

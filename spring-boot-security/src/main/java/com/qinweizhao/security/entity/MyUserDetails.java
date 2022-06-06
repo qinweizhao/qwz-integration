@@ -1,4 +1,4 @@
-package com.qinweizhao.entity;
+package com.qinweizhao.security.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

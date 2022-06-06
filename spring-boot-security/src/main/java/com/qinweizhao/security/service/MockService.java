@@ -1,4 +1,4 @@
-package com.qinweizhao.service;
+package com.qinweizhao.security.service;
 
 import org.springframework.security.core.userdetails.UserDetails;
 

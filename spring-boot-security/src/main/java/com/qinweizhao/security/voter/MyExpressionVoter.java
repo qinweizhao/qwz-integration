@@ -1,4 +1,4 @@
-package com.qinweizhao.voter;
+package com.qinweizhao.security.voter;
 
 import org.springframework.security.access.AccessDecisionVoter;
 import org.springframework.security.access.ConfigAttribute;

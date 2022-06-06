@@ -1,4 +1,4 @@
-package com.qinweizhao.config.swagger3;
+package com.qinweizhao.swagger.config.swagger3;
 
 
 import org.springframework.context.annotation.Bean;

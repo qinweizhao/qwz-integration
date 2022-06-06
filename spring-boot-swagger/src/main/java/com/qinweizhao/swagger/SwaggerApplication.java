@@ -1,4 +1,4 @@
-package com.qinweizhao;
+package com.qinweizhao.swagger;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

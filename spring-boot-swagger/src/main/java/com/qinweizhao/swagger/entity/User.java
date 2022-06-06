@@ -1,4 +1,4 @@
-package com.qinweizhao.entity;
+package com.qinweizhao.swagger.entity;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

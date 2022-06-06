@@ -1,4 +1,4 @@
-package com.qinweizhao.common;
+package com.qinweizhao.swagger.common;
 
 /**
  * 方便在 @ApiImplicitParam 的 dataType 属性使用

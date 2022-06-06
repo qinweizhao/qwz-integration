@@ -1,4 +1,4 @@
-package com.qinweizhao.interceptor;
+package com.qinweizhao.swagger.interceptor;
 
 import org.springframework.web.servlet.HandlerInterceptor;
 

@@ -1,9 +1,9 @@
-package com.qinweizhao.controller;
+package com.qinweizhao.swagger.controller;
 
 
-import com.qinweizhao.common.DataType;
-import com.qinweizhao.common.ParamType;
-import com.qinweizhao.entity.User;
+import com.qinweizhao.swagger.common.DataType;
+import com.qinweizhao.swagger.common.ParamType;
+import com.qinweizhao.swagger.entity.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;

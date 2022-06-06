@@ -1,6 +1,6 @@
-package com.qinweizhao.config.swagger3;
+package com.qinweizhao.swagger.config.swagger3;
 
-import com.qinweizhao.interceptor.MyInterceptor;
+import com.qinweizhao.swagger.interceptor.MyInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

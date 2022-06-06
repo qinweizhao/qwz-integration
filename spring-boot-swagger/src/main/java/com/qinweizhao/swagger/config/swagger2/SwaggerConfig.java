@@ -1,4 +1,4 @@
-package com.qinweizhao.config.swagger2;
+package com.qinweizhao.swagger.config.swagger2;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -25,6 +25,7 @@
 		<module>spring-boot-redisson</module>
 		<module>spring-boot-security</module>
 		<module>spring-boot-swagger</module>
+		<module>spring-cloud-oauth2</module>
 	</modules>
 
 </project>

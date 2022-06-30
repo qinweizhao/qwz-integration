@@ -5,3 +5,13 @@ spring:
     virtual-host: /
     username: guest
     password: guest
+    # 开启消息是否已经发送到交换机的确认机制
+    publisher-confirm-type: correlated
+    # 开启消息未成功投递到目标队列时将消息返回
+    publisher-returns: true
+    # 设置消费者需要手动确认消息
+    listener:
+      simple:
+        acknowledge-mode: manual
+      direct:
+        acknowledge-mode: manual

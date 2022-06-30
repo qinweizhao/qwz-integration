@@ -17,13 +17,6 @@
 
     <dependencies>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-oauth2-client</artifactId>
-        </dependency>
-
-
-
 
         <!--nacos注册中心-->
         <dependency>
@@ -40,6 +33,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.qinweizhao</groupId>
+            <artifactId>oauth2-common</artifactId>
+            <version>0.0.1</version>
         </dependency>
     </dependencies>
 

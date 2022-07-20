@@ -65,6 +65,7 @@
                 <artifactId>lombok</artifactId>
                 <optional>true</optional>
             </dependency>
+
             <dependency>
                 <groupId>com.qinweizhao</groupId>
                 <artifactId>spring-boot-dubbo-api</artifactId>

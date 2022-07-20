@@ -62,9 +62,8 @@ class JpaApplicationTests {
     }
 
 
-
     @Test
-    void add(){
+    void add() {
         Account account = new Account();
         account.setUsername("qwz");
         account.setPassword("qwz");
@@ -75,7 +74,7 @@ class JpaApplicationTests {
         detail.setRealName("wz");
         account.setDetail(detail);//这里就是传入一个对象
         account = accountRepository.save(account);
-        System.out.println("插入时，自动生成的主键ID为："+account.getId()+"，外键ID为："+account.getDetail().getId());
+        System.out.println("插入时，自动生成的主键ID为：" + account.getId() + "，外键ID为：" + account.getDetail().getId());
     }
 
 

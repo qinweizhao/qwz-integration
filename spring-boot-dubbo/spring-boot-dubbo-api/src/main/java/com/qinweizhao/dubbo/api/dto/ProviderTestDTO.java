@@ -1,4 +1,4 @@
-package com.qinweizhao.dto;
+package com.qinweizhao.dubbo.api.dto;
 
 
 import java.io.Serializable;

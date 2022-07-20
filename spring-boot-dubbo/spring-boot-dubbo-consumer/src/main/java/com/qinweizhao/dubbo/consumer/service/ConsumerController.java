@@ -1,7 +1,8 @@
-package com.qinweizhao.service;
+package com.qinweizhao.dubbo.consumer.service;
 
-import com.qinweizhao.dto.ProviderTestDTO;
-import com.qinweizhao.vo.ResultVO;
+import com.qinweizhao.dubbo.api.dto.ProviderTestDTO;
+import com.qinweizhao.dubbo.api.service.IProviderService;
+import com.qinweizhao.dubbo.api.vo.ResultVO;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

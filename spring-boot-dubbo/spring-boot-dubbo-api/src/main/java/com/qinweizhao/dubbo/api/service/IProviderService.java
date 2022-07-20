@@ -1,7 +1,7 @@
-package com.qinweizhao.service;
+package com.qinweizhao.dubbo.api.service;
 
 
-import com.qinweizhao.dto.ProviderTestDTO;
+import com.qinweizhao.dubbo.api.dto.ProviderTestDTO;
 
 import java.util.List;
 

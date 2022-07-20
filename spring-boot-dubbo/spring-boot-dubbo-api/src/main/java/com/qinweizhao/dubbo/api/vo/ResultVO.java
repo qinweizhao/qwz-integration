@@ -1,4 +1,4 @@
-package com.qinweizhao.vo;
+package com.qinweizhao.dubbo.api.vo;
 
 
 import java.io.Serializable;

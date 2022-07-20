@@ -1,7 +1,8 @@
-package com.qinweizhao.service;
+package com.qinweizhao.dubbo.provider.service;
 
 
-import com.qinweizhao.dto.ProviderTestDTO;
+import com.qinweizhao.dubbo.api.dto.ProviderTestDTO;
+import com.qinweizhao.dubbo.api.service.IProviderService;
 import org.apache.dubbo.config.annotation.Service;
 
 import java.util.ArrayList;

@@ -29,8 +29,8 @@
 | [spring-boot-druid](./spring-boot-druid)         | SpringBoot 整合 Druid          |
 | [spring-boot-dubbo](./spring-boot-dubbo)         | SpringBoot 整合 Dubbo          |
 | [spring-boot-elasticsearch](./spring-boot-elasticsearch)         | SpringBoot 整合 Elasticsearch          |
-| [spring-boot-freemarker](./spring-boot-freemarker)         | SpringBoot 整合 Freemarker          |
-| [spring-boot-jpa](./spring-boot-jpa)         | SpringBoot 整合 Jpa          |
+| [spring-boot-freemarker](./spring-boot-freemarker)         | SpringBoot 整合 FreeMarker          |
+| [spring-boot-jpa](./spring-boot-jpa)         | SpringBoot 整合 JPA          |
 | [spring-boot-mybatis-plus](./spring-boot-mybatis-plus)         | SpringBoot 整合 MybatisPlus          |
 | [spring-boot-rabbitmq](./spring-boot-rabbitmq)   | SpringBoot 整合 RabbitMQ       |
 | [spring-boot-redis](./spring-boot-redis)         | SpringBoot 整合 Redis          |

@@ -23,7 +23,7 @@
 
 ## 2、结构
 
-| Module 名称                                      | Module 介绍                    |
+|  名称                                      |  介绍                    |
 | :----------------------------------------------: | :----------------------------: |
 | [spring-boot-cloud](./spring-boot-cloud)         | SpringBoot 整合 SpringCloud          |
 | [spring-boot-druid](./spring-boot-druid)         | SpringBoot 整合 Druid          |

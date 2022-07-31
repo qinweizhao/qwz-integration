@@ -31,6 +31,7 @@
 | [spring-boot-elasticsearch](./spring-boot-elasticsearch)         | SpringBoot 整合 Elasticsearch          |
 | [spring-boot-freemarker](./spring-boot-freemarker)         | SpringBoot 整合 FreeMarker          |
 | [spring-boot-jpa](./spring-boot-jpa)         | SpringBoot 整合 JPA          |
+| [spring-boot-minio](./spring-boot-minio)         | SpringBoot 整合 MinIO          |
 | [spring-boot-mybatis-plus](./spring-boot-mybatis-plus)         | SpringBoot 整合 MybatisPlus          |
 | [spring-boot-rabbitmq](./spring-boot-rabbitmq)   | SpringBoot 整合 RabbitMQ       |
 | [spring-boot-redis](./spring-boot-redis)         | SpringBoot 整合 Redis          |

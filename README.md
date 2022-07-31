@@ -34,5 +34,7 @@
 | [spring-boot-mybatis-plus](./spring-boot-mybatis-plus)         | SpringBoot 整合 MybatisPlus          |
 | [spring-boot-rabbitmq](./spring-boot-rabbitmq)   | SpringBoot 整合 RabbitMQ       |
 | [spring-boot-redis](./spring-boot-redis)         | SpringBoot 整合 Redis          |
+| [spring-boot-redisson](./spring-boot-redisson)         | SpringBoot 整合 Redisson          |
 | [spring-boot-security](./spring-boot-security)   | SpringBoot 整合 SpringSecurity |
 | [spring-boot-swagger](./spring-boot-swagger)     | SpringBoot 整合 Swagger        |
+| [spring-boot-oauth2](./spring-boot-oauth2)     | SpringBoot 整合 OAuth2        |

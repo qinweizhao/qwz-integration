@@ -1,1 +1,15 @@
-
+minio:
+  # ???url
+  endpoint: http://127.0.0.1
+  # API???
+  port: 9000
+  # ??
+  accessKey: jhaws0hyaXAoJkUd
+  secretKey: XisfiplLISXnIseNKV6ZFrO1Qry4nZQD
+  secure: false
+  # ??
+  bucket-name: qwz-test
+  # ?????????
+  image-size: 10485760
+  # ???????
+  file-size: 1073741824

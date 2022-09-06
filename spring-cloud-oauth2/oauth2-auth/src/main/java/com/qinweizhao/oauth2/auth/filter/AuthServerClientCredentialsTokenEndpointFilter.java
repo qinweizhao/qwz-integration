@@ -11,9 +11,9 @@ import org.springframework.security.web.AuthenticationEntryPoint;
  * 自定义的客户端认证的过滤器，根据客户端的id、秘钥进行认证
  * 重写这个过滤器用于自定义异常处理
  * 具体认证的逻辑依然使用ClientCredentialsTokenEndpointFilter，只是设置一下AuthenticationEntryPoint为定制
- * @author weizhao
+ * @author qinweizhao
  */
-public class OAuthServerClientCredentialsTokenEndpointFilter extends ClientCredentialsTokenEndpointFilter {
+public class AuthServerClientCredentialsTokenEndpointFilter extends ClientCredentialsTokenEndpointFilter {
 
     private final AuthorizationServerSecurityConfigurer configurer;
 
@@ -24,7 +24,7 @@ public class OAuthServerClientCredentialsTokenEndpointFilter extends ClientCrede
      * @param configurer AuthorizationServerSecurityConfigurer对昂
      * @param authenticationEntryPoint 自定义的AuthenticationEntryPoint
      */
-    public OAuthServerClientCredentialsTokenEndpointFilter(AuthorizationServerSecurityConfigurer configurer, AuthenticationEntryPoint authenticationEntryPoint) {
+    public AuthServerClientCredentialsTokenEndpointFilter(AuthorizationServerSecurityConfigurer configurer, AuthenticationEntryPoint authenticationEntryPoint) {
         this.configurer = configurer;
         this.authenticationEntryPoint=authenticationEntryPoint;
     }
@@ -47,15 +47,16 @@ public class OAuthServerClientCredentialsTokenEndpointFilter extends ClientCrede
      */
     @Override
     public void afterPropertiesSet() {
-        //TODO 定制认证失败处理器，开发中可以自己修改
+        // 定制认证失败处理器，开发中可以自己修改
         setAuthenticationFailureHandler((request, response, exception) -> {
             if (exception instanceof BadCredentialsException) {
                 exception = new BadCredentialsException(exception.getMessage(), new BadClientCredentialsException());
             }
             authenticationEntryPoint.commence(request, response, exception);
         });
-        //成功处理器，和父类相同，为空即可。
+        // 成功处理器，和父类相同，为空即可。
         setAuthenticationSuccessHandler((request, response, authentication) -> {
         });
     }
+
 }

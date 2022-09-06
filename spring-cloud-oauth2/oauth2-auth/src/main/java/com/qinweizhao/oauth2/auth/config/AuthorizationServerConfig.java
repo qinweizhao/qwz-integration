@@ -2,7 +2,7 @@ package com.qinweizhao.oauth2.auth.config;
 
 import com.qinweizhao.oauth2.auth.excepion.AuthServerAuthenticationEntryPoint;
 import com.qinweizhao.oauth2.auth.excepion.AuthServerWebResponseExceptionTranslator;
-import com.qinweizhao.oauth2.auth.filter.OAuthServerClientCredentialsTokenEndpointFilter;
+import com.qinweizhao.oauth2.auth.filter.AuthServerClientCredentialsTokenEndpointFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -42,7 +42,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) {
         // 自定义 ClientCredentialsTokenEndpointFilter，用于处理客户端id，密码错误的异常
-        OAuthServerClientCredentialsTokenEndpointFilter endpointFilter = new OAuthServerClientCredentialsTokenEndpointFilter(security, authenticationEntryPoint);
+        AuthServerClientCredentialsTokenEndpointFilter endpointFilter = new AuthServerClientCredentialsTokenEndpointFilter(security, authenticationEntryPoint);
         endpointFilter.afterPropertiesSet();
 
         security.addTokenEndpointAuthenticationFilter(endpointFilter);

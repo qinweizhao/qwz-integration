@@ -1,7 +1,7 @@
 package com.qinweizhao.oauth2.auth.config;
 
-import com.qinweizhao.oauth2.auth.excepion.OAuthServerAuthenticationEntryPoint;
-import com.qinweizhao.oauth2.auth.excepion.OAuthServerWebResponseExceptionTranslator;
+import com.qinweizhao.oauth2.auth.excepion.AuthServerAuthenticationEntryPoint;
+import com.qinweizhao.oauth2.auth.excepion.AuthServerWebResponseExceptionTranslator;
 import com.qinweizhao.oauth2.auth.filter.OAuthServerClientCredentialsTokenEndpointFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -32,7 +32,7 @@ import javax.annotation.Resource;
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
     @Resource
-    private OAuthServerAuthenticationEntryPoint authenticationEntryPoint;
+    private AuthServerAuthenticationEntryPoint authenticationEntryPoint;
 
     /**
      * 认证服务器安全配置（令牌访问的安全约束）
@@ -41,9 +41,10 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
      */
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) {
-        //自定义ClientCredentialsTokenEndpointFilter，用于处理客户端id，密码错误的异常
+        // 自定义 ClientCredentialsTokenEndpointFilter，用于处理客户端id，密码错误的异常
         OAuthServerClientCredentialsTokenEndpointFilter endpointFilter = new OAuthServerClientCredentialsTokenEndpointFilter(security, authenticationEntryPoint);
         endpointFilter.afterPropertiesSet();
+
         security.addTokenEndpointAuthenticationFilter(endpointFilter);
 
         security
@@ -51,8 +52,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .tokenKeyAccess("permitAll()")
                 // 开启 /oauth/check_token 验证端口权限访问
                 .checkTokenAccess("permitAll()");
-        // 表示支持 client_id 和 client_secret 做登陆认证 ,如果自定义了 OAuthServerClientCredentialsTokenEndpointFilter 则下面要注释掉
-        // .allowFormAuthenticationForClients();
     }
 
     /**
@@ -80,18 +79,17 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .autoApprove(false)
                 // 回掉的地址
                 .redirectUris("https://www.qinweizhao.com");
-
     }
 
 
     /**
-     * Security的认证管理器，密码模式需要用到
+     * Security配置类注入
      */
     @Resource
-    AuthenticationManager authenticationManager;
+    private AuthenticationManager authenticationManager;
 
     /**
-     * 授权码模式的service，使用授权码模式authorization_code必须注入
+     * 授权码模式的service，使用授权码模式必须注入
      */
     @Bean
     public AuthorizationCodeServices authorizationCodeServices() {
@@ -111,6 +109,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Resource
     private TokenStore tokenStore;
 
+    /**
+     * JWT 编码的令牌值和 OAuth 身份验证信息之间进行转换
+     */
     @Resource
     private JwtAccessTokenConverter jwtAccessTokenConverter;
 
@@ -121,15 +122,15 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Bean
     public AuthorizationServerTokenServices tokenServices() {
         DefaultTokenServices services = new DefaultTokenServices();
-        //客户端端配置策略
+        // 客户端端配置策略
         services.setClientDetailsService(clientDetailsService);
-        //支持令牌的刷新
+        // 支持令牌的刷新
         services.setSupportRefreshToken(true);
-        //令牌服务
+        // 令牌服务
         services.setTokenStore(tokenStore);
-        //access_token的过期时间
+        // access_token的过期时间
         services.setAccessTokenValiditySeconds(60 * 60 * 2);
-        //refresh_token的过期时间
+        // refresh_token的过期时间
         services.setRefreshTokenValiditySeconds(60 * 60 * 24 * 3);
 
         // * 令牌增强
@@ -146,15 +147,15 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
         endpoints
-                //设置异常WebResponseExceptionTranslator，用于处理用户名，密码错误、授权类型不正确的异常
-                .exceptionTranslator(new OAuthServerWebResponseExceptionTranslator())
-                // 授权码模式所需要的 service
+                // 1、设置异常 WebResponseExceptionTranslator，用于处理用户名，密码错误、授权类型不正确的异常
+                .exceptionTranslator(new AuthServerWebResponseExceptionTranslator())
+                // 2、授权码模式所需要的 service
                 .authorizationCodeServices(authorizationCodeServices())
-                // 密码模式需要的认证管理器
+                // 3、密码模式需要的认证管理器
                 .authenticationManager(authenticationManager)
-                // 令牌管理服务，必须存在
+                // 4、令牌管理服务，必须存在
                 .tokenServices(tokenServices())
-                // 提交访问令牌（/oauth/token）只允许 POST 请求
+                // 5、提交访问令牌（/oauth/token）只允许 POST 请求
                 .allowedTokenEndpointRequestMethods(HttpMethod.POST);
     }
 

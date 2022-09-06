@@ -17,7 +17,7 @@ public class AccessTokenConfig {
      * JWT的秘钥
      * 统一配置到配置文件中，资源服务也需要用到
      */
-    private final static String SIGN_KEY="qinweizhao";
+    private static final String SIGN_KEY="qinweizhao";
 
     @Bean
     public TokenStore tokenStore() {

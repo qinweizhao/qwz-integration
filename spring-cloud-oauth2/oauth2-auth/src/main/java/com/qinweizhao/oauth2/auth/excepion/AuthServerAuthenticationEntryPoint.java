@@ -15,18 +15,20 @@ import java.io.IOException;
 
 /**
  * 用于处理客户端想认证出错，包括客户端id、密码错误
- * @author weizhao
+ *
+ * @author qinweizhao
+ * @since 2022/6/7
  */
 @Component
 @Slf4j
-public class OAuthServerAuthenticationEntryPoint implements AuthenticationEntryPoint {
+public class AuthServerAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
     /**
      * 认证失败处理器会调用这个方法返回提示信息
-     * TODO 实际开发中可以自己定义，此处直接返回JSON数据：客户端认证失败错误提示
      */
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException {
-        ResponseUtils.result(response,new Result(ResultCode.CLIENT_AUTHENTICATION_FAILED.getCode(),ResultCode.CLIENT_AUTHENTICATION_FAILED.getMsg(),null));
+        ResponseUtils.result(response, new Result(ResultCode.CLIENT_AUTHENTICATION_FAILED.getCode(), ResultCode.CLIENT_AUTHENTICATION_FAILED.getMsg(), null));
     }
+
 }

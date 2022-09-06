@@ -2,6 +2,7 @@ package com.qinweizhao.minio.service;
 
 import io.minio.messages.Bucket;
 import org.springframework.web.multipart.MultipartFile;
+
 import java.io.InputStream;
 import java.util.List;
 
@@ -28,6 +29,7 @@ public interface MinioService {
 
     /**
      * 列出所有存储桶名称
+     *
      * @return
      */
     List<String> listBucketName();
@@ -41,12 +43,14 @@ public interface MinioService {
 
     /**
      * 根据桶名删除桶
+     *
      * @param bucketName
      */
     boolean removeBucket(String bucketName);
 
     /**
      * 列出存储桶中的所有对象名称
+     *
      * @param bucketName
      * @return
      */
@@ -54,6 +58,7 @@ public interface MinioService {
 
     /**
      * 文件流下载
+     *
      * @param bucketName
      * @param objectName
      * @return
@@ -63,15 +68,16 @@ public interface MinioService {
 
     /**
      * 删除文件
+     *
      * @param bucketName
      * @param objectName
      */
     boolean removeObject(String bucketName, String objectName);
 
 
-
     /**
      * 批量删除文件
+     *
      * @param bucketName
      * @param objectNameList
      * @return
@@ -80,14 +86,16 @@ public interface MinioService {
 
     /**
      * 获取文件路径
+     *
      * @param bucketName
      * @param objectName
      * @return
      */
-    String getObjectUrl(String bucketName,String objectName);
+    String getObjectUrl(String bucketName, String objectName);
 
     /**
      * 文件上传
+     *
      * @param file
      * @param bucketName
      * @return

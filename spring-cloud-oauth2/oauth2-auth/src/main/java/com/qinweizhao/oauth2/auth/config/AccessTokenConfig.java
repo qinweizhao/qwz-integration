@@ -15,9 +15,9 @@ public class AccessTokenConfig {
 
     /**
      * JWT的秘钥
-     * 统一配置到配置文件中，资源服务也需要用到
+     * 可以统一配置到配置文件中，资源服务也需要用到
      */
-    private final static String SIGN_KEY="qinweizhao";
+    private static final String SIGN_KEY="qinweizhao";
 
     @Bean
     public TokenStore tokenStore() {
@@ -27,8 +27,7 @@ public class AccessTokenConfig {
 
     /**
      * JwtAccessTokenConverter
-     * TokenEnhancer的子类，在JWT编码的令牌值和OAuth身份验证信息之间进行转换。
-     * TODO：后期可以使用非对称加密
+     * TokenEnhancer 的子类，在 JWT 编码的令牌值和 OAuth 身份验证信息之间进行转换。
      */
     @Bean
     public JwtAccessTokenConverter jwtAccessTokenConverter(){

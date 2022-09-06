@@ -10,7 +10,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 
 /**
- * @author 公众号：码猿技术专栏
  * 存储用户的详细信息，实现UserDetails，后续有定制的字段可以自己拓展
  */
 @Data

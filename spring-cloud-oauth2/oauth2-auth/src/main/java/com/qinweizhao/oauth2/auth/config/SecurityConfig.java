@@ -19,28 +19,11 @@ import javax.annotation.Resource;
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginProcessingUrl("/login")
-                .permitAll()
-                .and()
-                .csrf()
-                .disable();
-    }
 
 
-    @Resource
-    UserDetailsService userDetailsService;
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-      auth.userDetailsService(userDetailsService);
-    }
-
+    /*
+     * 1、加密方式
+     */
 
     /**
      * 加密算法
@@ -51,6 +34,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
 
+    /*
+     * 2、配置用户
+     */
+
+    @Resource
+    private UserDetailsService userDetailsService;
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
+    }
+
+
+    /*
+     * 3、注入认证管理器
+     */
+
     /**
      * AuthenticationManager对象在OAuth2认证服务中要使用，提前放入IOC容器中
      * Oauth的密码模式需要
@@ -59,6 +59,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
+    }
+
+
+    /**
+     * 安全拦截策略
+     */
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                .anyRequest().authenticated()
+                .and().formLogin().loginProcessingUrl("/login").permitAll()
+                .and().csrf().disable();
     }
 
 

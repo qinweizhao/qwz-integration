@@ -1,4 +1,4 @@
-package com.qinweizhao.oauth2.common.model;
+package com.qinweizhao.oauth2.gateway.model;
 
 /**
  * 系统常量

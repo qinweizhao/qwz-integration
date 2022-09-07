@@ -2,10 +2,8 @@ package com.qinweizhao.oauth2.gateway.config;
 
 
 import cn.hutool.core.collection.CollUtil;
-import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.text.CharSequenceUtil;
-import cn.hutool.core.util.StrUtil;
-import com.qinweizhao.oauth2.common.model.SysConstant;
+import com.qinweizhao.oauth2.gateway.model.SysConstant;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.authorization.AuthorizationDecision;

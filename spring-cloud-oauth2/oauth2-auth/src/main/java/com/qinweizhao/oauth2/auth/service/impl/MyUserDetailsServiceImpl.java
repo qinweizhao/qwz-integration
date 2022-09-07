@@ -1,6 +1,6 @@
 package com.qinweizhao.oauth2.auth.service.impl;
 
-import com.qinweizhao.oauth2.common.model.SecurityUser;
+import com.qinweizhao.oauth2.auth.model.SecurityUser;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -29,6 +29,7 @@ public class MyUserDetailsServiceImpl implements UserDetailsService {
 
         users.add(admin);
         users.add(user);
+        System.out.println("用户已经保存"+users.toString());
     }
 
 

@@ -13,15 +13,14 @@
 
     <modules>
         <module>oauth2-auth</module>
-        <module>oauth2-common</module>
         <module>oauth2-resource</module>
         <module>oauth2-gateway</module>
     </modules>
 
     <properties>
-        <spring-boot.version>2.5.8</spring-boot.version>
-        <spring-cloud.version>2020.0.4</spring-cloud.version>
-        <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
+        <spring-boot.version>2.2.5.RELEASE</spring-boot.version>
+        <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
+        <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
     </properties>
 
     <dependencyManagement>

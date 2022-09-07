@@ -31,6 +31,7 @@ public class GlobalErrorExceptionHandler implements ErrorWebExceptionHandler {
 
     @Override
     public Mono<Void> handle(ServerWebExchange exchange, Throwable ex) {
+        log.error(ex.getMessage());
         ServerHttpResponse response = exchange.getResponse();
 
         if (response.isCommitted()) {
@@ -39,6 +40,7 @@ public class GlobalErrorExceptionHandler implements ErrorWebExceptionHandler {
 
         Result resultMsg = new Result(ResultCode.UNAUTHORIZED.getCode(), ResultCode.UNAUTHORIZED.getMsg(), null);
 
+        System.out.println("系统错误，GlobalErrorExceptionHandler");
 
         // JSON 格式返回
         response.getHeaders().setContentType(MediaType.APPLICATION_JSON);

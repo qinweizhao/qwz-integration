@@ -19,8 +19,6 @@ import javax.annotation.Resource;
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-
-
     /*
      * 1、加密方式
      */

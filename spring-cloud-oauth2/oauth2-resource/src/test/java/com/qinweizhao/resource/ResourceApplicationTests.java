@@ -1,10 +1,10 @@
-package com.qinweizhao.oauth2.gateway;
+package com.qinweizhao.resource;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Oauth2GatewayApplicationTests {
+class ResourceApplicationTests {
 
     @Test
     void contextLoads() {

@@ -1,4 +1,4 @@
-package com.qinweizhao.oauth2.common.model;
+package com.qinweizhao.oauth2.auth.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

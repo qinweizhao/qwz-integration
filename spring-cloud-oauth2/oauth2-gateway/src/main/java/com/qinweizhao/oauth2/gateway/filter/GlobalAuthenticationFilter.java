@@ -3,11 +3,7 @@ package com.qinweizhao.oauth2.gateway.filter;
 import cn.hutool.core.codec.Base64;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.qinweizhao.oauth2.common.model.SysConstant;
-import com.qinweizhao.oauth2.gateway.model.Result;
-import com.qinweizhao.oauth2.gateway.model.ResultCode;
-import com.qinweizhao.oauth2.gateway.model.SysParameterConfig;
-import com.qinweizhao.oauth2.gateway.model.TokenConstant;
+import com.qinweizhao.oauth2.gateway.model.*;
 import io.micrometer.core.instrument.util.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
@@ -160,6 +156,8 @@ public class GlobalAuthenticationFilter implements GlobalFilter, Ordered {
         byte[] bits = JSON.toJSONString(resultMsg).getBytes(StandardCharsets.UTF_8);
         DataBuffer buffer = response.bufferFactory().wrap(bits);
         response.setStatusCode(HttpStatus.UNAUTHORIZED);
+        System.out.println("系统错误，GlobalAuthenticationFilter");
+
         response.getHeaders().add("Content-Type", "application/json;charset:utf-8");
         return response.writeWith(Mono.just(buffer));
     }

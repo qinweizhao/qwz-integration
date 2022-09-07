@@ -3,6 +3,7 @@ server:
 spring:
   main:
     allow-bean-definition-overriding: true
+    web-application-type: reactive
   application:
     name: oauth2-gateway
   cloud:
@@ -24,7 +25,7 @@ spring:
           uri: lb://oauth2-resource
           predicates:
             ## Path Route Predicate Factory\u65AD\u8A00
-            - Path=/order/**
+            - Path=/resource/**
   redis:
     host: 127.0.0.1
     password:

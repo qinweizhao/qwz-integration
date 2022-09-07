@@ -3,6 +3,7 @@ package com.qinweizhao.oauth2.gateway.exception;
 import cn.hutool.json.JSONUtil;
 import com.qinweizhao.oauth2.gateway.model.Result;
 import com.qinweizhao.oauth2.gateway.model.ResultCode;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -21,11 +22,14 @@ import java.nio.charset.StandardCharsets;
  *
  * @author weizhao
  */
+@Slf4j
 @Component
 public class RequestAuthenticationEntryPoint implements ServerAuthenticationEntryPoint {
 
     @Override
     public Mono<Void> commence(ServerWebExchange exchange, AuthenticationException e) {
+        log.error(e.getMessage());
+        log.error(e.getCause().toString());
         ServerHttpResponse response = exchange.getResponse();
         response.setStatusCode(HttpStatus.OK);
         response.getHeaders().add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);

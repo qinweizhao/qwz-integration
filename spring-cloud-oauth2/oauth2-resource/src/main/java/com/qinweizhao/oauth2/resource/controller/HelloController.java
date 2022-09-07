@@ -1,6 +1,5 @@
 package com.qinweizhao.oauth2.resource.controller;
 
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,7 +22,6 @@ public class HelloController {
      * ROLE_admin 的角色才可以访问
      */
     @GetMapping("/admin")
-    @PreAuthorize("hasRole('ROLE_admin')")
     public String admin() {
         return "admin";
     }

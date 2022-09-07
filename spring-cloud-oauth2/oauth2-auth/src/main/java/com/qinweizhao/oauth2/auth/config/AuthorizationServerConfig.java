@@ -52,6 +52,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .tokenKeyAccess("permitAll()")
                 // 开启 /oauth/check_token 验证端口权限访问
                 .checkTokenAccess("permitAll()");
+                //表示支持 client_id 和 client_secret 做登录认证
+//                .allowFormAuthenticationForClients();
     }
 
     /**

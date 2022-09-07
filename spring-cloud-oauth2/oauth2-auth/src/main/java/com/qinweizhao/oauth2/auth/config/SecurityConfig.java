@@ -1,10 +1,12 @@
 package com.qinweizhao.oauth2.auth.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -17,6 +19,7 @@ import javax.annotation.Resource;
  * @since 2022/6/7
  */
 @Configuration
+@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     /*
@@ -36,12 +39,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      * 2、配置用户
      */
 
-    @Resource
-    private UserDetailsService userDetailsService;
+    @Autowired
+    private UserDetailsService myUserDetailsService;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
+        // 从数据库获取
+        auth.userDetailsService(myUserDetailsService).passwordEncoder(passwordEncoder());
+        // 从内存中获取
+//        auth.inMemoryAuthentication()
+//                .withUser("admin")
+//                .password(new BCryptPasswordEncoder().encode("123"))
+//                .roles("admin")
+//                .and()
+//                .withUser("user")
+//                .password(new BCryptPasswordEncoder().encode("123"))
+//                .roles("user");
     }
 
 
@@ -68,6 +81,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .anyRequest().authenticated()
                 .and().formLogin().loginProcessingUrl("/login").permitAll()
+                .and().formLogin().loginProcessingUrl("/oauth/token").permitAll()
                 .and().csrf().disable();
     }
 

@@ -46,14 +46,14 @@ public class MyAccessManager implements ReactiveAuthorizationManager<Authorizati
         //请求方法 POST,GET
         String method = authorizationContext.getExchange().getRequest().getMethodValue();
         // 适配restful接口，比如 GET:/api/.... POST:/api/....  *:/api/.....  星号匹配所有
-        String restFulPath = method + SysConstant.METHOD_SUFFIX + uri.getPath();
+//        String restFulPath = method + SysConstant.METHOD_SUFFIX + uri.getPath();
         //获取所有的uri->角色对应关系
         Map<String, List<String>> entries = redisTemplate.opsForHash().entries(SysConstant.OAUTH_URLS);
         //角色集合
         List<String> authorities = new ArrayList<>();
         entries.forEach((path, roles) -> {
             //路径匹配则添加到角色集合中
-            if (antPathMatcher.match(path, restFulPath)) {
+            if (antPathMatcher.match(path, uri.getPath())) {
                 authorities.addAll(roles);
             }
         });

@@ -21,7 +21,7 @@ public class AuthServerClientCredentialsTokenEndpointFilter extends ClientCreden
 
     /**
      * 构造方法
-     * @param configurer AuthorizationServerSecurityConfigurer对昂
+     * @param configurer AuthorizationServerSecurityConfigurer
      * @param authenticationEntryPoint 自定义的AuthenticationEntryPoint
      */
     public AuthServerClientCredentialsTokenEndpointFilter(AuthorizationServerSecurityConfigurer configurer, AuthenticationEntryPoint authenticationEntryPoint) {

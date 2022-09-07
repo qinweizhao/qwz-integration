@@ -156,7 +156,7 @@ public class GlobalAuthenticationFilter implements GlobalFilter, Ordered {
         byte[] bits = JSON.toJSONString(resultMsg).getBytes(StandardCharsets.UTF_8);
         DataBuffer buffer = response.bufferFactory().wrap(bits);
         response.setStatusCode(HttpStatus.UNAUTHORIZED);
-        System.out.println("系统错误，GlobalAuthenticationFilter");
+        log.error("系统错误，GlobalAuthenticationFilter");
 
         response.getHeaders().add("Content-Type", "application/json;charset:utf-8");
         return response.writeWith(Mono.just(buffer));

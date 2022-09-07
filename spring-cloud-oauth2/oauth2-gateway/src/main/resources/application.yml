@@ -31,6 +31,12 @@ spring:
     password:
     port: 6379
     timeout: 15000
+    jedis:
+      pool:
+        max-active: 600
+        max-idle: 300
+        max-wait: 15000
+        min-idle: 10
 oauth2:
   cloud:
     sys:
@@ -38,4 +44,6 @@ oauth2:
         ignoreUrls:
           - /oauth/token
           - /oauth/authorize
-
+logging:
+  level:
+    com.qinweizhao.oauth2: info

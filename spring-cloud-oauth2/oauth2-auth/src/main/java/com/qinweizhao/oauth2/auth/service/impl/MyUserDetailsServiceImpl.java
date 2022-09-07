@@ -1,6 +1,7 @@
 package com.qinweizhao.oauth2.auth.service.impl;
 
 import com.qinweizhao.oauth2.auth.model.SecurityUser;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,6 +19,7 @@ import java.util.stream.Collectors;
  * @author qinweizhao
  * @since 2022/6/8
  */
+@Slf4j
 @Service
 public class MyUserDetailsServiceImpl implements UserDetailsService {
 
@@ -29,12 +31,14 @@ public class MyUserDetailsServiceImpl implements UserDetailsService {
 
         users.add(admin);
         users.add(user);
-        System.out.println("用户已经保存"+users.toString());
+        log.info("用户已经保存"+users.toString());
     }
 
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        log.info("从数据库查询用户信息方法执行...");
+        System.out.println("从数据库查询用户信息方法执行...");
         //从数据库中查询
         List<SecurityUser> list = users.stream().filter(p -> username.equals(p.getUsername())).limit(1).collect(Collectors.toList());
 

@@ -1,7 +1,6 @@
 package com.qinweizhao.oauth2.gateway.config;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
@@ -12,23 +11,27 @@ import org.springframework.security.oauth2.server.resource.BearerTokenAuthentica
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
+import javax.annotation.Resource;
+
 /**
- * JWT认证管理器，主要的作用就是对携带过来的token进行校验，比如过期时间，加密方式等
- * 一旦token校验通过，则交给鉴权管理器进行鉴权
+ * 认证管理器
+ * 校验 token，比如过期时间，加密方式等
+ * @author qinweizhao
+ * @since 2022/6/7
  */
 @Component
 @Slf4j
-public class JwtAuthenticationManager implements ReactiveAuthenticationManager {
+public class MyAuthenticationManager implements ReactiveAuthenticationManager {
     /**
      * 使用JWT令牌进行解析令牌
      */
-    @Autowired
+    @Resource
     private TokenStore tokenStore;
 
     @Override
     public Mono<Authentication> authenticate(Authentication authentication) {
         return Mono.justOrEmpty(authentication)
-                .filter(a -> a instanceof BearerTokenAuthenticationToken)
+                .filter(BearerTokenAuthenticationToken.class::isInstance)
                 .cast(BearerTokenAuthenticationToken.class)
                 .map(BearerTokenAuthenticationToken::getToken)
                 .flatMap((accessToken -> {

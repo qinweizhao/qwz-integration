@@ -28,7 +28,6 @@ public class AccessTokenConfig {
     /**
      * JwtAccessTokenConverter
      * TokenEnhancer的子类，在JWT编码的令牌值和OAuth身份验证信息之间进行转换。
-     * TODO：后期可以使用非对称加密
      */
     @Bean
     public JwtAccessTokenConverter jwtAccessTokenConverter(){

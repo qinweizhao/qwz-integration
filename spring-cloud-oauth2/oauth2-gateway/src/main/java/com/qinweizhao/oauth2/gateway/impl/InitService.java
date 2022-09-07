@@ -7,15 +7,14 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
 
 /**
  * 用于初始化uir的权限到redis中
- * TODO 实际开发中需要自己维护，此处只是为了演示方便
- * 详情见 cn.myjszl.oauth2.cloud.auth.server.service.impl.LoadRolePermissionService
  */
 @Service
 public class InitService {
-    @Autowired
+    @Resource
     private RedisTemplate<String,Object> redisTemplate;
 
     @PostConstruct

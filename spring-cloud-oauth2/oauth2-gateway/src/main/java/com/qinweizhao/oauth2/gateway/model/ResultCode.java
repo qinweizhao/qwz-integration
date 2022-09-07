@@ -2,7 +2,8 @@ package com.qinweizhao.oauth2.gateway.model;
 
 /**
  * 响应码、提示信息
- * @author weizhao
+ * @author qinweizhao
+ * @since 2022/6/7
  */
 public enum ResultCode {
 

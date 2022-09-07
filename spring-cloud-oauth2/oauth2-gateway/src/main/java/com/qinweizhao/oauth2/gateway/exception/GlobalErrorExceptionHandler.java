@@ -18,42 +18,46 @@ import reactor.core.publisher.Mono;
 
 /**
  * 用于网关的全局异常处理
+ *
+ * @author qinweizhao
  * @Order(-1)：优先级一定要比ResponseStatusExceptionHandler低
+ * @since 2022/6/7
  */
 @Slf4j
 @Order(-1)
 @Component
 @RequiredArgsConstructor
 public class GlobalErrorExceptionHandler implements ErrorWebExceptionHandler {
+
     @Override
     public Mono<Void> handle(ServerWebExchange exchange, Throwable ex) {
         ServerHttpResponse response = exchange.getResponse();
+
         if (response.isCommitted()) {
             return Mono.error(ex);
         }
 
-        Result resultMsg=new Result(ResultCode.UNAUTHORIZED.getCode(),ResultCode.UNAUTHORIZED.getMsg(),null);
+        Result resultMsg = new Result(ResultCode.UNAUTHORIZED.getCode(), ResultCode.UNAUTHORIZED.getMsg(), null);
 
 
-        // JOSN格式返回
+        // JSON 格式返回
         response.getHeaders().setContentType(MediaType.APPLICATION_JSON);
         if (ex instanceof ResponseStatusException) {
             response.setStatusCode(((ResponseStatusException) ex).getStatus());
         }
 
         //处理TOKEN失效的异常
-        if (ex instanceof InvalidTokenException){
-            resultMsg=new Result(ResultCode.INVALID_TOKEN.getCode(),ResultCode.INVALID_TOKEN.getMsg(),null);
+        if (ex instanceof InvalidTokenException) {
+            resultMsg = new Result(ResultCode.INVALID_TOKEN.getCode(), ResultCode.INVALID_TOKEN.getMsg(), null);
         }
 
         Result finalResultMsg = resultMsg;
         return response.writeWith(Mono.fromSupplier(() -> {
             DataBufferFactory bufferFactory = response.bufferFactory();
             try {
-                //todo 返回响应结果，根据业务需求，自己定制
+                // 返回响应结果，根据业务需求，自己定制
                 return bufferFactory.wrap(new ObjectMapper().writeValueAsBytes(finalResultMsg));
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 log.error("Error writing response", ex);
                 return bufferFactory.wrap(new byte[0]);
             }

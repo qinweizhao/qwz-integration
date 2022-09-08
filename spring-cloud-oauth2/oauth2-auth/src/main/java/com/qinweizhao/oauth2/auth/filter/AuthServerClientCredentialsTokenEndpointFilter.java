@@ -1,5 +1,6 @@
 package com.qinweizhao.oauth2.auth.filter;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.oauth2.common.exceptions.BadClientCredentialsException;
@@ -11,8 +12,10 @@ import org.springframework.security.web.AuthenticationEntryPoint;
  * 自定义的客户端认证的过滤器，根据客户端的id、秘钥进行认证
  * 重写这个过滤器用于自定义异常处理
  * 具体认证的逻辑依然使用ClientCredentialsTokenEndpointFilter，只是设置一下AuthenticationEntryPoint为定制
+ *
  * @author qinweizhao
  */
+@Slf4j
 public class AuthServerClientCredentialsTokenEndpointFilter extends ClientCredentialsTokenEndpointFilter {
 
     private final AuthorizationServerSecurityConfigurer configurer;
@@ -21,12 +24,13 @@ public class AuthServerClientCredentialsTokenEndpointFilter extends ClientCreden
 
     /**
      * 构造方法
-     * @param configurer AuthorizationServerSecurityConfigurer
+     *
+     * @param configurer               AuthorizationServerSecurityConfigurer
      * @param authenticationEntryPoint 自定义的AuthenticationEntryPoint
      */
     public AuthServerClientCredentialsTokenEndpointFilter(AuthorizationServerSecurityConfigurer configurer, AuthenticationEntryPoint authenticationEntryPoint) {
         this.configurer = configurer;
-        this.authenticationEntryPoint=authenticationEntryPoint;
+        this.authenticationEntryPoint = authenticationEntryPoint;
     }
 
     @Override
@@ -56,6 +60,7 @@ public class AuthServerClientCredentialsTokenEndpointFilter extends ClientCreden
         });
         // 成功处理器，和父类相同，为空即可。
         setAuthenticationSuccessHandler((request, response, authentication) -> {
+            log.info("客户端认证成功");
         });
     }
 

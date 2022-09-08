@@ -38,7 +38,6 @@ public class MyUserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         log.info("从数据库查询用户信息方法执行...");
-        System.out.println("从数据库查询用户信息方法执行...");
         //从数据库中查询
         List<SecurityUser> list = users.stream().filter(p -> username.equals(p.getUsername())).limit(1).collect(Collectors.toList());
 

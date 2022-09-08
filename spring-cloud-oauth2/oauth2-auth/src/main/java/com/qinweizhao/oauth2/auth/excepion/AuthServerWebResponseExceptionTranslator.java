@@ -2,18 +2,19 @@ package com.qinweizhao.oauth2.auth.excepion;
 
 import com.qinweizhao.oauth2.auth.model.Result;
 import com.qinweizhao.oauth2.auth.model.ResultCode;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.oauth2.common.exceptions.InvalidGrantException;
 import org.springframework.security.oauth2.common.exceptions.UnsupportedGrantTypeException;
 import org.springframework.security.oauth2.provider.error.WebResponseExceptionTranslator;
 
-import javax.sound.midi.Soundbank;
 
 /**
  * @author qinweizhao
  * @since 2022/6/7
  */
+@Slf4j
 public class AuthServerWebResponseExceptionTranslator implements WebResponseExceptionTranslator {
 
     /**
@@ -22,7 +23,7 @@ public class AuthServerWebResponseExceptionTranslator implements WebResponseExce
     @Override
     public ResponseEntity<Result> translate(Exception e) {
         Result resultMsg = doTranslateHandler(e);
-        System.out.println("系统错误，AuthServerWebResponseExceptionTranslator");
+        log.error("系统错误，AuthServerWebResponseExceptionTranslator");
 
         return new ResponseEntity<>(resultMsg, HttpStatus.UNAUTHORIZED);
     }
@@ -33,7 +34,7 @@ public class AuthServerWebResponseExceptionTranslator implements WebResponseExce
     private Result doTranslateHandler(Exception e) {
         //初始值，系统错误，
         ResultCode resultCode = ResultCode.UNAUTHORIZED;
-        System.out.println("系统错误，AuthServerWebResponseExceptionTranslator");
+        log.error("系统错误，AuthServerWebResponseExceptionTranslator");
         //判断异常，不支持的认证方式
         if (e instanceof UnsupportedGrantTypeException) {
             //不支持的授权类型异常

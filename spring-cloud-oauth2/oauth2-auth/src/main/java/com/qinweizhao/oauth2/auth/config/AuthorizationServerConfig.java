@@ -52,8 +52,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .tokenKeyAccess("permitAll()")
                 // 开启 /oauth/check_token 验证端口权限访问
                 .checkTokenAccess("permitAll()");
-                //表示支持 client_id 和 client_secret 做登录认证
-//                .allowFormAuthenticationForClients();
     }
 
     /**
@@ -78,7 +76,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 // 允许的授权范围，客户端的权限，这里的 all 是一种标识，可以自定义，为了后续的资源服务进行权限控制
                 .scopes("all")
                 // false 则跳转到授权页面
-                .autoApprove(false)
+                .autoApprove(true)
                 // 回掉的地址
                 .redirectUris("https://www.qinweizhao.com");
     }

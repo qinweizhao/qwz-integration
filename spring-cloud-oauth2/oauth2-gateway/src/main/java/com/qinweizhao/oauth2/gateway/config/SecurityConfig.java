@@ -1,10 +1,12 @@
 package com.qinweizhao.oauth2.gateway.config;
 
 import cn.hutool.core.util.ArrayUtil;
+import cn.hutool.log.Log;
 import com.qinweizhao.oauth2.gateway.exception.RequestAccessDeniedHandler;
 import com.qinweizhao.oauth2.gateway.exception.RequestAuthenticationEntryPoint;
 import com.qinweizhao.oauth2.gateway.filter.CorsFilter;
 import com.qinweizhao.oauth2.gateway.model.SysParameterConfig;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
@@ -18,6 +20,7 @@ import org.springframework.security.web.server.authentication.AuthenticationWebF
 import org.springframework.security.web.server.authorization.AuthorizationContext;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author qinweizhao
@@ -25,6 +28,7 @@ import javax.annotation.Resource;
  * 网关的OAuth2.0资源的配置类
  * 由于gateway使用的Flux，因此需要使用@EnableWebFluxSecurity注解开启，而不是平常的web应用了
  */
+@Slf4j
 @Configuration
 @EnableWebFluxSecurity
 public class SecurityConfig {
@@ -68,6 +72,8 @@ public class SecurityConfig {
         //认证过滤器，放入认证管理器tokenAuthenticationManager
         AuthenticationWebFilter authenticationWebFilter = new AuthenticationWebFilter(myAuthenticationManager);
         authenticationWebFilter.setServerAuthenticationConverter(new ServerBearerTokenAuthenticationConverter());
+        List<String> ignoreUrls = sysConfig.getIgnoreUrls();
+        log.info("ignoreUrls" + ignoreUrls);
 
         http.httpBasic().disable().csrf().disable().authorizeExchange()
                 //白名单直接放行

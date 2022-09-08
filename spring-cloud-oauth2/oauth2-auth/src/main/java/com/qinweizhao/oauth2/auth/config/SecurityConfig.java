@@ -1,6 +1,5 @@
 package com.qinweizhao.oauth2.auth.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -39,22 +38,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      * 2、配置用户
      */
 
-    @Autowired
+    @Resource
     private UserDetailsService myUserDetailsService;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         // 从数据库获取
         auth.userDetailsService(myUserDetailsService).passwordEncoder(passwordEncoder());
-        // 从内存中获取
-//        auth.inMemoryAuthentication()
-//                .withUser("admin")
-//                .password(new BCryptPasswordEncoder().encode("123"))
-//                .roles("admin")
-//                .and()
-//                .withUser("user")
-//                .password(new BCryptPasswordEncoder().encode("123"))
-//                .roles("user");
     }
 
 
@@ -81,7 +71,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .anyRequest().authenticated()
                 .and().formLogin().loginProcessingUrl("/login").permitAll()
-                .and().formLogin().loginProcessingUrl("/oauth/token").permitAll()
                 .and().csrf().disable();
     }
 

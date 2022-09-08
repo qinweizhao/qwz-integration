@@ -8,26 +8,26 @@ spring:
     name: oauth2-gateway
   cloud:
     nacos:
-      ## \u6CE8\u518C\u4E2D\u5FC3\u914D\u7F6E
+      ## 注册中心配置
       discovery:
-        # nacos\u7684\u670D\u52A1\u5730\u5740\uFF0Cnacos-server\u4E2DIP\u5730\u5740:\u7AEF\u53E3\u53F7
+        # nacos的服务地址，nacos-server中IP地址:端口号
         server-addr: 127.0.0.1:8848
     gateway:
-      ## \u8DEF\u7531
+      ## 路由
       routes:
-        ## id\u53EA\u8981\u552F\u4E00\u5373\u53EF\uFF0C\u540D\u79F0\u4EFB\u610F
+        ## id只要唯一即可，名称任意
         - id: oauth2-auth
           uri: lb://oauth2-auth
           predicates:
-            ## Path Route Predicate Factory\u65AD\u8A00
+            ## Path Route Predicate Factory断言
             - Path=/oauth/**
         - id: oauth2-resource
           uri: lb://oauth2-resource
           predicates:
-            ## Path Route Predicate Factory\u65AD\u8A00
+            ## Path Route Predicate Factory断言
             - Path=/resource/**
   redis:
-    host: 127.0.0.1
+    host: 127.0.01
     password:
     port: 6379
     timeout: 15000
@@ -44,6 +44,4 @@ oauth2:
         ignoreUrls:
           - /oauth/token
           - /oauth/authorize
-logging:
-  level:
-    com.qinweizhao.oauth2: info
+

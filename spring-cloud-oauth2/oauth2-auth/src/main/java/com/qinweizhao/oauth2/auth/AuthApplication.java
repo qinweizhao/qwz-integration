@@ -10,7 +10,6 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  * @author qinweizhao
  */
 @EnableDiscoveryClient
-@EnableAspectJAutoProxy
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.qinweizhao.oauth2.auth.*"})
 public class AuthApplication {

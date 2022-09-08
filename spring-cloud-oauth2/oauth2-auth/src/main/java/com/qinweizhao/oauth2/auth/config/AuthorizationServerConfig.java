@@ -12,7 +12,6 @@ import org.springframework.security.oauth2.config.annotation.configurers.ClientD
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
-import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
 import org.springframework.security.oauth2.provider.code.AuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.code.InMemoryAuthorizationCodeServices;
@@ -39,20 +38,20 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
      *
      * @param security security
      */
-    @Override
-    public void configure(AuthorizationServerSecurityConfigurer security) {
-        // 自定义 ClientCredentialsTokenEndpointFilter，用于处理客户端id，密码错误的异常
-        AuthServerClientCredentialsTokenEndpointFilter endpointFilter = new AuthServerClientCredentialsTokenEndpointFilter(security, authenticationEntryPoint);
-        endpointFilter.afterPropertiesSet();
-
-        security.addTokenEndpointAuthenticationFilter(endpointFilter);
-
-        security
-                // 开启 /oauth/token_key 验证端口权限访问
-                .tokenKeyAccess("permitAll()")
-                // 开启 /oauth/check_token 验证端口权限访问
-                .checkTokenAccess("permitAll()");
-    }
+//    @Override
+//    public void configure(AuthorizationServerSecurityConfigurer security) {
+//        // 自定义 ClientCredentialsTokenEndpointFilter，用于处理客户端id，密码错误的异常
+//        AuthServerClientCredentialsTokenEndpointFilter endpointFilter = new AuthServerClientCredentialsTokenEndpointFilter(security, authenticationEntryPoint);
+//        endpointFilter.afterPropertiesSet();
+//
+//        security.addTokenEndpointAuthenticationFilter(endpointFilter);
+//
+//        security
+//                // 开启 /oauth/token_key 验证端口权限访问
+//                .tokenKeyAccess("permitAll()")
+//                // 开启 /oauth/check_token 验证端口权限访问
+//                .checkTokenAccess("permitAll()");
+//    }
 
     /**
      * 客户端详情配置

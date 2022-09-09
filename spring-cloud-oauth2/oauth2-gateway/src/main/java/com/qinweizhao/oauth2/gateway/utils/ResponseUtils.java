@@ -10,6 +10,7 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * 结果封装类
+ *
  * @author weizhao
  */
 public class ResponseUtils {

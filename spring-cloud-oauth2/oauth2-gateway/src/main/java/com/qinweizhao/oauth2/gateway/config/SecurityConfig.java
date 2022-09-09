@@ -1,7 +1,6 @@
 package com.qinweizhao.oauth2.gateway.config;
 
 import cn.hutool.core.util.ArrayUtil;
-import cn.hutool.log.Log;
 import com.qinweizhao.oauth2.gateway.exception.RequestAccessDeniedHandler;
 import com.qinweizhao.oauth2.gateway.exception.RequestAuthenticationEntryPoint;
 import com.qinweizhao.oauth2.gateway.filter.CorsFilter;

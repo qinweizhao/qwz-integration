@@ -16,6 +16,7 @@ import javax.annotation.Resource;
 /**
  * 认证管理器
  * 校验 token，比如过期时间，加密方式等
+ *
  * @author qinweizhao
  * @since 2022/6/7
  */

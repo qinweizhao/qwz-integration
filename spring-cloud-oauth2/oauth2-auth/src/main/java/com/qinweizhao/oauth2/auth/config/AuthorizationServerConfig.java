@@ -33,6 +33,26 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Resource
     private AuthServerAuthenticationEntryPoint authenticationEntryPoint;
+    /**
+     * Security配置类注入
+     */
+    @Resource
+    private AuthenticationManager authenticationManager;
+    /**
+     * 客户端存储策略，这里使用内存方式，后续可以存储在数据库
+     */
+    @Resource
+    private ClientDetailsService clientDetailsService;
+    /**
+     * 令牌存储策略
+     */
+    @Resource
+    private TokenStore tokenStore;
+    /**
+     * JWT 编码的令牌值和 OAuth 身份验证信息之间进行转换
+     */
+    @Resource
+    private JwtAccessTokenConverter jwtAccessTokenConverter;
 
     /**
      * 认证服务器安全配置（令牌访问的安全约束）
@@ -81,13 +101,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .redirectUris("https://www.qinweizhao.com");
     }
 
-
-    /**
-     * Security配置类注入
-     */
-    @Resource
-    private AuthenticationManager authenticationManager;
-
     /**
      * 授权码模式的service，使用授权码模式必须注入
      */
@@ -95,26 +108,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     public AuthorizationCodeServices authorizationCodeServices() {
         return new InMemoryAuthorizationCodeServices();
     }
-
-
-    /**
-     * 客户端存储策略，这里使用内存方式，后续可以存储在数据库
-     */
-    @Resource
-    private ClientDetailsService clientDetailsService;
-
-    /**
-     * 令牌存储策略
-     */
-    @Resource
-    private TokenStore tokenStore;
-
-    /**
-     * JWT 编码的令牌值和 OAuth 身份验证信息之间进行转换
-     */
-    @Resource
-    private JwtAccessTokenConverter jwtAccessTokenConverter;
-
 
     /**
      * 令牌管理服务的配置

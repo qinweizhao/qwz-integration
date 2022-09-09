@@ -31,7 +31,7 @@ public class MyUserDetailsServiceImpl implements UserDetailsService {
 
         users.add(admin);
         users.add(user);
-        log.info("用户已经保存"+users.toString());
+        log.info("用户已经保存" + users.toString());
     }
 
 

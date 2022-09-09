@@ -25,6 +25,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      * 1、加密方式
      */
 
+    @Resource
+    private UserDetailsService myUserDetailsService;
+
+
+    /*
+     * 2、配置用户
+     */
+
     /**
      * 加密算法
      */
@@ -32,14 +40,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
-
-    /*
-     * 2、配置用户
-     */
-
-    @Resource
-    private UserDetailsService myUserDetailsService;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {

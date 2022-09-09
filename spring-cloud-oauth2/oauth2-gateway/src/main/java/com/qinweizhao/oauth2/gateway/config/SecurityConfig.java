@@ -64,6 +64,9 @@ public class SecurityConfig {
     @Resource
     private ReactiveAuthenticationManager myAuthenticationManager;
 
+    /**
+     * 跨域过滤器
+     */
     @Resource
     private CorsFilter corsFilter;
 
@@ -83,9 +86,10 @@ public class SecurityConfig {
                 //鉴权的异常处理，权限不足，token失效
                 .and().exceptionHandling().authenticationEntryPoint(requestAuthenticationEntryPoint).accessDeniedHandler(requestAccessDeniedHandler).and()
                 // 跨域过滤器
-                .addFilterAt(corsFilter, SecurityWebFiltersOrder.CORS)
+//                .addFilterAt(corsFilter, SecurityWebFiltersOrder.CORS)
                 //token的认证过滤器，用于校验token和认证
                 .addFilterAt(authenticationWebFilter, SecurityWebFiltersOrder.AUTHENTICATION);
         return http.build();
     }
+
 }

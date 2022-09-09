@@ -50,4 +50,5 @@ public class MyAuthenticationManager implements ReactiveAuthenticationManager {
                     }
                 })).cast(Authentication.class);
     }
+
 }

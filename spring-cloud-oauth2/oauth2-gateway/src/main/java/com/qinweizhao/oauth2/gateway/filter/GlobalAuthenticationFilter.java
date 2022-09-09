@@ -4,7 +4,6 @@ import cn.hutool.core.codec.Base64;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.qinweizhao.oauth2.gateway.model.*;
-import io.micrometer.core.instrument.util.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
@@ -19,6 +18,7 @@ import org.springframework.security.oauth2.common.exceptions.InvalidTokenExcepti
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
@@ -65,7 +65,7 @@ public class GlobalAuthenticationFilter implements GlobalFilter, Ordered {
 
         //2、 检查token是否存在
         String token = getToken(exchange);
-        if (StringUtils.isBlank(token)) {
+        if (ObjectUtils.isEmpty(token)) {
             return invalidTokenMono(exchange);
         }
 
@@ -86,8 +86,6 @@ public class GlobalAuthenticationFilter implements GlobalFilter, Ordered {
             String userName = additionalInformation.get("user_name").toString();
             //获取用户权限
             List<String> authorities = (List<String>) additionalInformation.get("authorities");
-            //从additionalInformation取出userId
-            String userId = additionalInformation.get(TokenConstant.USER_ID).toString();
             JSONObject jsonObject = new JSONObject();
             jsonObject.put(TokenConstant.PRINCIPAL_NAME, userName);
             jsonObject.put(TokenConstant.AUTHORITIES_NAME, authorities);
@@ -95,7 +93,6 @@ public class GlobalAuthenticationFilter implements GlobalFilter, Ordered {
             jsonObject.put(TokenConstant.EXPR, oAuth2AccessToken.getExpiresIn());
             jsonObject.put(TokenConstant.JTI, jti);
             //封装到JSON数据中
-            jsonObject.put(TokenConstant.USER_ID, userId);
             //将解析后的token加密放入请求头中，方便下游微服务解析获取用户信息
             String base64 = Base64.encode(jsonObject.toJSONString());
             //放入请求头中
@@ -133,11 +130,11 @@ public class GlobalAuthenticationFilter implements GlobalFilter, Ordered {
      */
     private String getToken(ServerWebExchange exchange) {
         String tokenStr = exchange.getRequest().getHeaders().getFirst("Authorization");
-        if (StringUtils.isBlank(tokenStr)) {
+        if (ObjectUtils.isEmpty(tokenStr)) {
             return null;
         }
         String token = tokenStr.split(" ")[1];
-        if (StringUtils.isBlank(token)) {
+        if (ObjectUtils.isEmpty(token)) {
             return null;
         }
         return token;

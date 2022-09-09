@@ -33,7 +33,7 @@ public class GlobalErrorExceptionHandler implements ErrorWebExceptionHandler {
     public Mono<Void> handle(ServerWebExchange exchange, Throwable ex) {
         log.error(ex.getMessage());
         ServerHttpResponse response = exchange.getResponse();
-
+        ex.printStackTrace();
         if (response.isCommitted()) {
             return Mono.error(ex);
         }

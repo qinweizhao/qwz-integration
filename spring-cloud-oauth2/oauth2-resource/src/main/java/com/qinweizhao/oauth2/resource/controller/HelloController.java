@@ -1,6 +1,7 @@
 package com.qinweizhao.oauth2.resource.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2022/6/7
  */
 @RestController
+@RequestMapping("/resource")
 public class HelloController {
 
     /**

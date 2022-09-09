@@ -74,5 +74,4 @@ public class MyAccessManager implements ReactiveAuthorizationManager<Authorizati
                 }).map(AuthorizationDecision::new).defaultIfEmpty(new AuthorizationDecision(false));
     }
 
-
 }

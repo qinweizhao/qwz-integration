@@ -1,9 +1,7 @@
 ## spring-cloud-oauth2
 
-### 1. 简介
-
-SpringCloud 整合 SpringSecurityOAuth2
-
-> 访问地址：http://localhost:port
+> 相关文章地址：
 >
-
+> [OAuth 2.0 (qinweizhao.com)](https://www.qinweizhao.com/?p=127)
+>
+> [SpringCloud 整合 OAuth 2.0 (qinweizhao.com)](https://www.qinweizhao.com/?p=128)

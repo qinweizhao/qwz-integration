@@ -11,6 +11,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class MySimpleJob implements SimpleJob {
 
+    /**
+     * @param shardingContext 作业配置、分片和运行时信息
+     */
     @Override
     public void execute(ShardingContext shardingContext) {
         int shardingItem = shardingContext.getShardingItem();

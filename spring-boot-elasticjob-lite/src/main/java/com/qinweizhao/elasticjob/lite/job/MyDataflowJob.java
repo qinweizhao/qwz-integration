@@ -15,15 +15,27 @@ import java.util.List;
  */
 @Slf4j
 @Component
-public class MyDataFlowJob implements DataflowJob<User> {
+public class MyDataflowJob implements DataflowJob<User> {
 
+    /**
+     * 抓取数据
+     *
+     * @param shardingContext shardingContext
+     * @return List
+     */
     @Override
     public List<User> fetchData(ShardingContext shardingContext) {
-        log.debug("获取数据,分片项为"+shardingContext.getShardingItem());
+        log.debug("获取数据,分片项为" + shardingContext.getShardingItem());
         User user = new User(1, "qwz", "123", "china");
         return Collections.singletonList(user);
     }
 
+    /**
+     * 处理数据
+     *
+     * @param shardingContext shardingContext
+     * @param list            list
+     */
     @Override
     public void processData(ShardingContext shardingContext, List<User> list) {
         log.debug("开始处理数据");

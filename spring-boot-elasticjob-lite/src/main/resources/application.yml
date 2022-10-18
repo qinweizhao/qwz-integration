@@ -1,20 +1,25 @@
 elasticjob:
   reg-center:
     server-lists: 127.0.0.1:2181
-    namespace: elasticjob-lite-springboot
+    namespace: springboot-elasticjob-lite
   jobs:
-    dataflowJob:
-      elasticJobClass: org.apache.shardingsphere.elasticjob.dataflow.job.DataflowJob
-      cron: 0/5 * * * * ?
+    simpleJob:
+      elastic-job-class: com.qinweizhao.elasticjob.lite.job.MySimpleJob
+      cron: 0/10 * * * * ?
       shardingTotalCount: 3
       shardingItemParameters: 0=Beijing,1=Shanghai,2=Guangzhou
-#    scriptJob:
-#      elasticJobType: SCRIPT
-#      cron: 0/10 * * * * ?
-#      shardingTotalCount: 3
-#      props:
-#    script.command.line: "echo SCRIPT Job: "
+    dataflowJob:
+      elasticJobClass: com.qinweizhao.elasticjob.lite.job.MyDataflowJob
+      cron: 0/10 * * * * ?
+      shardingTotalCount: 3
+      shardingItemParameters: 0=Beijing,1=Shanghai,2=Guangzhou
+    scriptJob:
+      elasticJobType: SCRIPT
+      cron: 0/10 * * * * ?
+      shardingTotalCount: 3
+      props:
+        script.command.line: "java -version"
 
 logging:
   level:
-    root: debug
+    root: info

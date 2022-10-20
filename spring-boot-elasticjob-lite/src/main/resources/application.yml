@@ -1,9 +1,10 @@
 elasticjob:
-  reg-center:
-    server-lists: 127.0.0.1:2181
-    namespace: springboot-elasticjob-lite
   jobs:
     simpleJob:
+      job-listener-types: myJobListener
+#      jobErrorHandlerType: LOG
+      jobErrorHandlerType: THROW
+#      jobErrorHandlerType: IGNORE
       elastic-job-class: com.qinweizhao.elasticjob.lite.job.MySimpleJob
       cron: 0/10 * * * * ?
       shardingTotalCount: 3
@@ -19,6 +20,58 @@ elasticjob:
       shardingTotalCount: 3
       props:
         script.command.line: "java -version"
+#    occurErrorNoticeDingtalkJob:
+#      elasticJobClass: com.qinweizhao.elasticjob.lite.job.OccurErrorNoticeDingtalkJob
+#      overwrite: true
+#      shardingTotalCount: 3
+#      shardingItemParameters: 0=Beijing,1=Shanghai,2=Guangzhou
+#      jobErrorHandlerType: DINGTALK
+#      jobBootstrapBeanName: occurErrorNoticeDingtalkBean
+#      props:
+#        dingtalk:
+#          webhook: you_webhook
+#          keyword: you_keyword
+#          secret: you_secret
+#          connectTimeout: 3000
+#          readTimeout: 5000
+#    occurErrorNoticeWechatJob:
+#      elasticJobClass: com.qinweizhao.elasticjob.lite.job.OccurErrorNoticeWechatJob
+#      overwrite: true
+#      shardingTotalCount: 3
+#      shardingItemParameters: 0=Beijing,1=Shanghai,2=Guangzhou
+#      jobErrorHandlerType: WECHAT
+#      jobBootstrapBeanName: occurErrorNoticeWechatBean
+#      props:
+#        wechat:
+#          webhook: you_webhook
+#          connectTimeout: 3000
+#          readTimeout: 5000
+#    occurErrorNoticeEmailJob:
+#      elasticJobClass: com.qinweizhao.elasticjob.lite.job.OccurErrorNoticeEmailJob
+#      overwrite: true
+#      shardingTotalCount: 3
+#      shardingItemParameters: 0=Beijing,1=Shanghai,2=Guangzhou
+#      jobErrorHandlerType: EMAIL
+#      jobBootstrapBeanName: occurErrorNoticeEmailBean
+#      props:
+#        email:
+#          host: host
+#          port: 465
+#          username: username
+#          password: password
+#          useSsl: true
+#          subject: ElasticJob error message
+#          from: from@xxx.xx
+#          to: to1@xxx.xx,to2@xxx.xx
+#          cc: cc@xxx.xx
+#          bcc: bcc@xxx.xx
+#          debug: false
+  dump:
+    port: 9888
+  reg-center:
+    server-lists: 127.0.0.1:2181
+    namespace: springboot-elasticjob-lite
+
 
 logging:
   level:

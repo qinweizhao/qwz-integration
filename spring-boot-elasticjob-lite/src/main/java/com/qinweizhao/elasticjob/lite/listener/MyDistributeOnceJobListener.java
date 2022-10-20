@@ -31,4 +31,5 @@ public class MyDistributeOnceJobListener extends AbstractDistributeOnceElasticJo
     public String getType() {
         return "distributeOnceJobListener";
     }
+
 }

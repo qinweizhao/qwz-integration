@@ -27,4 +27,5 @@ public class MyJobListener implements ElasticJobListener {
     public String getType() {
         return "myJobListener";
     }
+
 }

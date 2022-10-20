@@ -16,6 +16,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<e-job.version>3.0.0</e-job.version>
+		<h2.version>1.4.184</h2.version>
 	</properties>
 	<dependencies>
 
@@ -48,6 +49,16 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 
 		<dependency>

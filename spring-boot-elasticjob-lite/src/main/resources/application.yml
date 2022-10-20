@@ -1,4 +1,6 @@
 elasticjob:
+  tracing:
+    type: RDB
   jobs:
     simpleJob:
       job-listener-types: myJobListener
@@ -70,8 +72,13 @@ elasticjob:
     port: 9888
   reg-center:
     server-lists: 127.0.0.1:2181
-    namespace: springboot-elasticjob-lite
-
+    namespace: springboot-elasticjob
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: Qwz#1201
 
 logging:
   level:

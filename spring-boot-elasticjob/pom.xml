@@ -11,8 +11,8 @@
 	<groupId>com.qinweizhao</groupId>
 	<artifactId>spring-boot-elasticjob-lite</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-boot-elasticjob-lite</name>
-	<description>spring-boot-elasticjob-lite</description>
+	<name>spring-boot-elasticjob</name>
+	<description>spring-boot-elasticjob</description>
 	<properties>
 		<java.version>1.8</java.version>
 		<e-job.version>3.0.0</e-job.version>

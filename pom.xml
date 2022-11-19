@@ -14,6 +14,7 @@
 	<description>integration-parent</description>
 
 	<modules>
+		<module>spring-boot-authorization-server</module>
 		<module>spring-boot-cloud</module>
 		<module>spring-boot-druid</module>
 		<module>spring-boot-dubbo</module>

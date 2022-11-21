@@ -2,7 +2,6 @@ package com.qinweizhao.authorization.server.config;
 
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
-import com.nimbusds.jose.jwk.source.ImmutableJWKSet;
 import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
 import com.qinweizhao.authorization.server.util.Jwks;
@@ -22,13 +21,8 @@ import org.springframework.security.oauth2.server.authorization.client.Registere
 import org.springframework.security.oauth2.server.authorization.config.ClientSettings;
 import org.springframework.security.oauth2.server.authorization.config.ProviderSettings;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
 import org.springframework.security.web.util.matcher.RequestMatcher;
 
-import java.security.KeyPair;
-import java.security.KeyPairGenerator;
-import java.security.interfaces.RSAPrivateKey;
-import java.security.interfaces.RSAPublicKey;
 import java.util.UUID;
 
 /**
@@ -48,25 +42,19 @@ public class AuthorizationServerConfig {
         OAuth2AuthorizationServerConfigurer<HttpSecurity> authorizationServerConfigurer = new OAuth2AuthorizationServerConfigurer<>();
 
         // 获取授权服务器相关的请求端点
-        RequestMatcher authorizationServerEndpointsMatcher =
-                authorizationServerConfigurer.getEndpointsMatcher();
+        RequestMatcher authorizationServerEndpointsMatcher = authorizationServerConfigurer.getEndpointsMatcher();
 
         http// 拦截对 授权服务器 相关端点的请求
                 .requestMatcher(authorizationServerEndpointsMatcher)
                 // 拦载到的请求需要认证确认（登录）
                 .authorizeRequests()
                 // 其余所有请求都要认证
-                .anyRequest().authenticated()
-                .and()
+                .anyRequest().authenticated().and()
                 // 忽略掉相关端点的csrf（跨站请求）：对授权端点的访问可以是跨站的
-                .csrf(csrf -> csrf
-                        .ignoringRequestMatchers(authorizationServerEndpointsMatcher))
+                .csrf(csrf -> csrf.ignoringRequestMatchers(authorizationServerEndpointsMatcher))
 
                 // 表单登录
-                .formLogin()
-                .and()
-                .logout()
-                .and()
+                .formLogin().and().logout().and()
                 // 应用 授权服务器的配置
                 .apply(authorizationServerConfigurer);
 
@@ -75,20 +63,20 @@ public class AuthorizationServerConfig {
 
     @Bean
     public RegisteredClientRepository registeredClientRepository() {
-        RegisteredClient registeredClient = RegisteredClient.withId(UUID.randomUUID().toString())
-                .clientId("c1")
+        RegisteredClient registeredClient = RegisteredClient
+                .withId(UUID.randomUUID().toString()).clientId("c1")
                 .clientSecret("{noop}123")
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
                 .authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
                 .authorizationGrantType(AuthorizationGrantType.PASSWORD)
-//                .redirectUri("http://127.0.0.1:8080/login/oauth2/code/messaging-client-oidc")
                 .redirectUri("https://www.qinweizhao.com")
                 .scope(OidcScopes.OPENID)
                 .scope("message.read")
                 .scope("message.write")
-                .clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build()).build();
+                .clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build())
+                .build();
 
         return new InMemoryRegisteredClientRepository(registeredClient);
     }

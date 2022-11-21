@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.qinweizhao</groupId>
-	<artifactId>spring-boot-elasticjob-lite</artifactId>
+	<artifactId>spring-boot-elasticjob</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-boot-elasticjob</name>
 	<description>spring-boot-elasticjob</description>

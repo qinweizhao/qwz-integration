@@ -18,7 +18,7 @@ import javax.annotation.Resource;
  * 校验 token，比如过期时间，加密方式等
  *
  * @author qinweizhao
- * @since 2022/6/7
+ * @since 2022-06-07
  */
 @Component
 @Slf4j

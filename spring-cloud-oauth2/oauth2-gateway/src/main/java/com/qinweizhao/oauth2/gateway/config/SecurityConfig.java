@@ -23,7 +23,7 @@ import java.util.List;
 
 /**
  * @author qinweizhao
- * @since 2022/6/7
+ * @since 2022-06-07
  * 网关的OAuth2.0资源的配置类
  * 由于gateway使用的Flux，因此需要使用@EnableWebFluxSecurity注解开启，而不是平常的web应用了
  */

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author qinweizhao
- * @since 2022/6/7
+ * @since 2022-06-07
  */
 @RestController
 @RequestMapping("/resource")

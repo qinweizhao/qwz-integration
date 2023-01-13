@@ -15,7 +15,7 @@ import javax.annotation.Resource;
 
 /**
  * @author qinweizhao
- * @since 2022/6/7
+ * @since 2022-06-07
  */
 @Configuration
 @EnableWebSecurity

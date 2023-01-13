@@ -28,7 +28,7 @@ import java.util.Map;
  * 企业中可能有不同的处理逻辑，可以根据业务需求更改鉴权的逻辑
  *
  * @author qinweizhao
- * @since 2022/6/7
+ * @since 2022-06-07
  */
 @Slf4j
 @Component

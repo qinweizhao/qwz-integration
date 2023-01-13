@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 /**
  * @author qinweizhao
- * @since 2022/7/4
+ * @since 2022-07-04
  */
 @Data
 @Entity   //表示这个类是一个实体类

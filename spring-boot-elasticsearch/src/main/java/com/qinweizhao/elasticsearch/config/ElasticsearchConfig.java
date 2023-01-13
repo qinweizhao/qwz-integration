@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author qinweizhao
- * @since 2022/5/7
+ * @since 2022-05-07
  */
 @Configuration
 public class ElasticsearchConfig {

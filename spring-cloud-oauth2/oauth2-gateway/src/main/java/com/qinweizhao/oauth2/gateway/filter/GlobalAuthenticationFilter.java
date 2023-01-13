@@ -29,7 +29,7 @@ import java.util.Map;
 
 /**
  * @author qinweizhao
- * @since 2022/6/7
+ * @since 2022-06-07
  * 全局过滤器，对token的拦截，解析token放入header中，便于下游微服务获取用户信息
  * 分为如下几步：
  * 1、白名单直接放行

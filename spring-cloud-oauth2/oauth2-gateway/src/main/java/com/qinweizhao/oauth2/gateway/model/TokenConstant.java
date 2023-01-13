@@ -2,7 +2,7 @@ package com.qinweizhao.oauth2.gateway.model;
 
 /**
  * @author qinweizhao
- * @since 2022/6/7
+ * @since 2022-06-07
  */
 public class TokenConstant {
 

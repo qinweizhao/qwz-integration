@@ -17,7 +17,7 @@ import java.io.IOException;
  * 用于处理客户端想认证出错，包括客户端id、密码错误
  *
  * @author qinweizhao
- * @since 2022/6/7
+ * @since 2022-06-07
  */
 @Component
 @Slf4j

@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * @author qinweizhao
- * @since 2022/7/4
+ * @since 2022-07-04
  */
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Integer> {

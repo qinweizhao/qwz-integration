@@ -8,7 +8,7 @@ import lombok.experimental.Accessors;
 
 /**
  * @author qinweizhao
- * @since 2022/6/7
+ * @since 2022-06-07
  */
 @Data
 @AllArgsConstructor

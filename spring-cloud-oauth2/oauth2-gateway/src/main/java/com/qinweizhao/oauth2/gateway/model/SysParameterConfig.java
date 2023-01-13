@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * @author qinweizhao
- * @since 2022/6/7
+ * @since 2022-06-07
  */
 @Data
 @ConfigurationProperties(prefix = "oauth2.cloud.sys.parameter")

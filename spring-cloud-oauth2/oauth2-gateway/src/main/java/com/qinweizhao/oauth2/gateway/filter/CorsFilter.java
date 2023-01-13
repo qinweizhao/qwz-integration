@@ -16,7 +16,7 @@ import reactor.core.publisher.Mono;
  * 跨域的配置
  *
  * @author qinweizhao
- * @since 2022/6/7
+ * @since 2022-06-07
  */
 @Component
 public class CorsFilter implements WebFilter {

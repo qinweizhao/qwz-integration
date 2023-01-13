@@ -10,7 +10,7 @@ import java.io.IOException;
 
 /**
  * @author qinweizhao
- * @since 2021/9/25
+ * @since 2021-09-25
  */
 @Component
 public class MyLogoutSuccessHandler implements LogoutSuccessHandler {

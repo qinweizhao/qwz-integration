@@ -4,7 +4,7 @@ package com.qinweizhao.swagger.common;
  * 方便在 @ApiImplicitParam 的 dataType 属性使用
  *
  * @author qinweizhao
-ç
+ * @since 2021-10-12
  */
 public final class DataType {
 

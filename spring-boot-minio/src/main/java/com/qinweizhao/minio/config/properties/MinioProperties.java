@@ -6,7 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * @author qinweizhao
- * @since 2022/7/31
+ * @since 2021-07-31
  */
 @Data
 @ConfigurationProperties(prefix = "minio")

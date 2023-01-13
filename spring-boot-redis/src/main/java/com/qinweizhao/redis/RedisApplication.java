@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @author qinweizhao
+ * @since 2021-10-18
  */
 @SpringBootApplication
 public class RedisApplication {

@@ -4,7 +4,7 @@ package com.qinweizhao.swagger.common;
  * 方便在 @ApiImplicitParam 的 paramType 属性使用
  *
  * @author qinweizhao
- * @since 2021/10/12
+ * @since 2021-10-12
  */
 public final class ParamType {
 

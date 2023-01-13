@@ -14,7 +14,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 
 /**
  * @author qinweizhao
- * @since 2021/10/12
+ * @since 2021-10-12
  */
 @EnableOpenApi
 @Configuration

@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * 若配置有拦截器，应对Swagger做如下配置
  *
  * @author qinweizhao
- * @since 2021/11/9
+ * @since 2021-11-19
  */
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {

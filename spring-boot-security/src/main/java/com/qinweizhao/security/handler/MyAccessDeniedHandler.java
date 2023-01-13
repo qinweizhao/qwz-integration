@@ -10,7 +10,7 @@ import java.io.IOException;
 
 /**
  * @author qinweizhao
- * @since 2021/11/10
+ * @since 2021-11-10
  */
 @Component
 public class MyAccessDeniedHandler implements AccessDeniedHandler {

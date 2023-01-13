@@ -4,7 +4,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  * @author qinweizhao
- * @since 2021/11/10
+ * @since 2021-11-10
  */
 public interface MockService {
 

@@ -33,7 +33,7 @@ import java.util.List;
 
 /**
  * @author qinweizhao
- * @since 2021/11/10
+ * @since 2021-11-10
  */
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)

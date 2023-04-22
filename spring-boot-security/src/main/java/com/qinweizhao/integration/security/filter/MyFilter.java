@@ -1,4 +1,4 @@
-package com.qinweizhao.security.filter;
+package com.qinweizhao.integration.security.filter;
 
 import org.springframework.web.filter.OncePerRequestFilter;
 

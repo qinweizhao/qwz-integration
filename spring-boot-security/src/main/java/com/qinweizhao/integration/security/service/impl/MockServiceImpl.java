@@ -1,7 +1,7 @@
-package com.qinweizhao.security.service.impl;
+package com.qinweizhao.integration.security.service.impl;
 
-import com.qinweizhao.security.entity.MyUserDetails;
-import com.qinweizhao.security.service.MockService;
+import com.qinweizhao.integration.security.entity.MyUserDetails;
+import com.qinweizhao.integration.security.service.MockService;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

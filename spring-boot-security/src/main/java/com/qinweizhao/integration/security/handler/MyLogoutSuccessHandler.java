@@ -1,4 +1,4 @@
-package com.qinweizhao.security.handler;
+package com.qinweizhao.integration.security.handler;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;

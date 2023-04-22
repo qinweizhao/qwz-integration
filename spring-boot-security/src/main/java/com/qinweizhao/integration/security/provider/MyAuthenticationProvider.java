@@ -1,4 +1,4 @@
-package com.qinweizhao.security.provider;
+package com.qinweizhao.integration.security.provider;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider;

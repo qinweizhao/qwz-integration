@@ -1,11 +1,11 @@
-package com.qinweizhao.security.config;
+package com.qinweizhao.integration.security.config;
 
-import com.qinweizhao.security.filter.MyFilter;
-import com.qinweizhao.security.handler.MyAccessDeniedHandler;
-import com.qinweizhao.security.handler.MyAuthenticationEntryPoint;
-import com.qinweizhao.security.handler.MyLogoutSuccessHandler;
-import com.qinweizhao.security.provider.MyAuthenticationProvider;
-import com.qinweizhao.security.voter.MyExpressionVoter;
+import com.qinweizhao.integration.security.handler.MyAuthenticationEntryPoint;
+import com.qinweizhao.integration.security.handler.MyLogoutSuccessHandler;
+import com.qinweizhao.integration.security.provider.MyAuthenticationProvider;
+import com.qinweizhao.integration.security.voter.MyExpressionVoter;
+import com.qinweizhao.integration.security.filter.MyFilter;
+import com.qinweizhao.integration.security.handler.MyAccessDeniedHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

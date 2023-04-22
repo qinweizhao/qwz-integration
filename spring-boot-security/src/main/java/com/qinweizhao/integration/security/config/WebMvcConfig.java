@@ -1,4 +1,4 @@
-package com.qinweizhao.security.config;
+package com.qinweizhao.integration.security.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;

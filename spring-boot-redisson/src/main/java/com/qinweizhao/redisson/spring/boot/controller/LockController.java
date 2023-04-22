@@ -59,7 +59,7 @@ public class LockController {
 
 
     @RequestMapping("/lock3")
-    public void lock3(HttpServletResponse response) throws InterruptedException {
+    public void lock3() throws InterruptedException {
         RLock lock = redisson.getLock("test-lock");
 
         if (lock.isLocked()) {

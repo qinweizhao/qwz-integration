@@ -73,9 +73,10 @@ SpringBoot 集成 SpringSecurity，前端页面使用 thymeleaf 。扩展了 **�
 
 ### 4. 相关
 
-> [Spring Security 的执行流程 (qinweizhao.com)](https://www.qinweizhao.com/?p=14)
+> [Spring Security 的执行流程 (qinweizhao.com)](https://blog.qinweizhao.com/article/14)
 >
-> [Spring Security 配置 (qinweizhao.com)](https://www.qinweizhao.com/?p=59)
+> [Spring Security 配置 (qinweizhao.com)](https://blog.qinweizhao.com/article/59)
 >
-> [Spring Security 认证原理（UsernamePasswordAuthenticationFilter）(qinweizhao.com)](https://www.qinweizhao.com/?p=15)
+> [Spring Security 认证原(qinweizhao.com)](https://blog.qinweizhao.com/article/15)
+>
 
